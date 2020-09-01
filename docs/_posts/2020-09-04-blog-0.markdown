@@ -28,9 +28,9 @@ categories: Senior-Design
 <p>This is Blog 0, one of many to come. These blogs will serve to document my learning process and the various findings that I may have during this educational journey. The main sections of this blog will be <b>Installing Jekyll</b>, <b>Creating a GitHub Repository</b>, <b>Creating a Blog</b>, and <b>Customizations</b>.</p>
 <br>
 
-<h1>Installing <a href="https://jekyllrb.com/docs/installation/windows/">Jekyll</a></h1>
+<h1><b>Installing <a href="https://jekyllrb.com/docs/installation/windows/">Jekyll</a></b></h1>
 <p>Jekyll is a static site generator. A static site is a collection of pages contained in HTML files, and what Jekyll does is it takes some form of markup language to create those pages. Depending on what you write into the HTML files, you can create the site in any way that you can imagine.</p>
-<h2><a href="https://jekyllrb.com/docs/installation/#requirements">Prerequisites</a></h2>
+<h1><a href="https://jekyllrb.com/docs/installation/#requirements">Prerequisites</a></h1>
 <p>The link attached to the heading, gives the general prerequisites for installing Jekyll, but the prerequisites that I will be mentioning and going over are for <a href="https://jekyllrb.com/docs/installation/windows/">Windows</a>. Using the Bash method, I managed to follow along with the <a href="https://jekyllrb.com/docs/installation/windows/">Windows Installation Guide</a> that was provided to successfully install Jekyll.</p>
 <p><code># To use the Bash Method on Windows, you will need to have a <a href="https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview">Windows Subsystem for Linux (WSL)</a>. I used Ubuntu.</code></p>
 <p>Once you have your WSL setup, go ahead and open up the terminal and run the following to navigate to a Bash instance:</p>
