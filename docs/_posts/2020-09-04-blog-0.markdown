@@ -15,7 +15,6 @@ categories: Senior-Design
 		color: #666666;
 		background-color: #ffe9ec;
 		padding: 2px;
-		padding-left:5em;
         }
 	
 	body {
@@ -34,7 +33,7 @@ categories: Senior-Design
 <p>The link attached to the heading, gives the general prerequisites for installing Jekyll, but the prerequisites that I will be mentioning and going over are for <a href="https://jekyllrb.com/docs/installation/windows/">Windows</a>. Using the Bash method, I managed to follow along with the <a href="https://jekyllrb.com/docs/installation/windows/">Windows Installation Guide</a> that was provided to successfully install Jekyll.</p>
 <p><code># To use the Bash Method on Windows, you will need to have a <a href="https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview">Windows Subsystem for Linux (WSL)</a>. I used Ubuntu.</code></p>
 <p>Once you have your WSL setup, go ahead and open up the terminal and run the following to navigate to a Bash instance:</p>
-<p><code>$ bash</code></p>
+<p>&nbsp&nbsp&nbsp&nbsp&nbsp<code>$ bash</code></p>
 
 </body>
 </html>
