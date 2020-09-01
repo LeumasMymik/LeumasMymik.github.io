@@ -4,4 +4,17 @@
 
 layout: home
 ---
-<body style="background-color:#cce9ff;"></body>
+<html>
+<style>
+        html, body, h1, h2, h3, h4, h5, h6, p {
+                font-family:  "Courier";
+        }
+
+        body {
+                background-color:#cce9ff;
+        }
+</style>
+
+<body>
+</body>
+</html>
