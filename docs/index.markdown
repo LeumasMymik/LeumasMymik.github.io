@@ -4,7 +4,4 @@
 
 layout: home
 ---
-<html>
-<body style="background-color:#cce9ff;">
-</body>
-</html>
+<body style="background-color:#cce9ff;"></body>
