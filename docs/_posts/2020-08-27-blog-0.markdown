@@ -4,4 +4,9 @@ title:  "2020/08/27 Blog 0"
 date:   2020-08-27 12:40:45 -0700
 categories: Senior-Design
 ---
+<html>
+<body style="background-color:cce9ff;">
+</body>
+</html>
+
 This is Blog 0.
