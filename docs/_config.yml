@@ -22,7 +22,7 @@ title: CIT 480/L Senior Design
 email: samuel.kim.475@my.csun.edu
 description: >- # this means to ignore newlines until "baseurl:"
   California State University, Northridge
-  CIT 480/L SENIOR DESIGN Fall 2020
+           CIT 480/L SENIOR DESIGN Fall 2020
   Samuel Kim
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://LeumasMymik.github.io" # the base hostname & protocol for your site, e.g. http://example.com
