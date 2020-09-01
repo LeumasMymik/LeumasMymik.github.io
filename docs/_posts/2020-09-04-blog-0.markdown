@@ -23,7 +23,7 @@ categories: Senior-Design
 </style>
 
 <body>
-<h1>Introduction</h1>
+<h1><b>Introduction</b></h1>
 <p>This is Blog 0, one of many to come. These blogs will serve to document my learning process and the various findings that I may have during this educational journey. The main sections of this blog will be <b>Installing Jekyll</b>, <b>Creating a GitHub Repository</b>, <b>Creating a Blog</b>, and <b>Customizations</b>.</p>
 <br>
 
