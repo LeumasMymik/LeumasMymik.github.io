@@ -2,7 +2,10 @@
 layout: post
 title:  "2020/08/27 Blog 0"
 date:   2020-08-27 12:40:45 -0700
-background-color: #cce9ff
 categories: Senior-Design
 ---
-This is Blog 0.
+<html>
+<body style=”background-color:#cce9ff;”>
+<p>This is Blog 0.</p>
+</body>
+</html>
