@@ -6,7 +6,5 @@ layout: home
 ---
 <html>
 <body style="background-color:#cce9ff;">
-<header style="background-color:#c7ceea;">
-</header>
 </body>
 </html>
