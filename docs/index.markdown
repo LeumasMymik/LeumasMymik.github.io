@@ -5,6 +5,6 @@
 layout: home
 ---
 <html>
-<body style="background-color:powderblue;">
+<body style="background-color:#bebebe;">
 </body>
 </html>
