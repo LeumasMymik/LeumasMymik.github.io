@@ -10,8 +10,11 @@ categories: Senior-Design
 		font-family:  "Courier";
 	}
 
-	h1, h2, h3, h4, h5, h6{
-                background-color: #ffe9ec;
+	code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
         }
 	
 	body {
@@ -20,6 +23,11 @@ categories: Senior-Design
 </style>
 
 <body>
-<p>This is Blog 0.</p>
+<h1>Setting Up A GitHub Blog</h1>
+<p>This is Blog 0, one of many to come. This blog will serve to document my learning process and various findings that I may have during this educational journey. The main sections of this blog will be <b>Installing Jekyll</b>, <b>Creating a GitHub Repository</b>, and <b>Creating the Blogs</b>, and <b>Customizations</b>.</p>
+
+<h3>Installing Jekyll</h3>
+
+
 </body>
 </html>
