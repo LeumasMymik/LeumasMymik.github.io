@@ -15,6 +15,7 @@ categories: Senior-Design
 		color: #666666;
 		background-color: #ffe9ec;
 		padding: 2px;
+		padding-right: 7px;
         }
 	
 	body {
