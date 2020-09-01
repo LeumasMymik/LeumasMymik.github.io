@@ -4,3 +4,7 @@
 
 layout: home
 ---
+<html>
+<body style="background-color:powderblue;">
+</body>
+</html>
