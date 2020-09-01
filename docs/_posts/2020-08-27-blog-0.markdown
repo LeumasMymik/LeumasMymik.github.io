@@ -5,7 +5,13 @@ date:   2020-08-27 12:40:45 -0700
 categories: Senior-Design
 ---
 <html>
-<body style=”background-color:#cce9ff;”>
+<style>
+	body {
+		background-color:#cce9ff;
+	}
+</style>
+
+<body>
 <p>This is Blog 0.</p>
 </body>
 </html>
