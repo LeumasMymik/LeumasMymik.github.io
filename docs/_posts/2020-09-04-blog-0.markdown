@@ -42,12 +42,33 @@ categories: Senior-Design
 <h1><a href="https://jekyllrb.com/docs/installation/#requirements">Prerequisites</a></h1>
 <p>The link attached to the heading, gives the general prerequisites for installing Jekyll, but the prerequisites that I will be mentioning and going over are for <a href="https://jekyllrb.com/docs/installation/windows/">Windows</a>. Using the Bash method, I managed to follow along with the <a href="https://jekyllrb.com/docs/installation/windows/">Windows Installation Guide</a> that was provided to successfully install Jekyll.</p>
 <p><code># To use the Bash Method on Windows, you will need to have a <a href="https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview">Windows Subsystem for Linux (WSL)</a>. I used Ubuntu.</code></p>
-<p>Once you have your WSL setup, I went ahead and opened up the terminal and ran the following to navigate to a Bash instance:</p>
+<p>Once I had my WSL setup, I went ahead and opened up the terminal and ran the following to navigate to a Bash instance:</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ bash</code></p>
+
 <p>After navigating to a Bash instance, I used the following code to try and update my repo lists and packages:</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-get update -y && sudo apt-get upgrade -y</code></p>
-<p>*** When I tried to run the code above I received an error message. ***</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>apt-get: error while loading shared libraries: libapt-pkg.so.5.90: cannot open shared object file: No such file or directory</code></p>
 
+<p>*** When I tried to run the code above I received an error message. ***</p>
+<p><code>apt-get: error while loading shared libraries: libapt-pkg.so.5.90: cannot open shared object file: No such file or directory</code></p>
+<p>The solution that I found, which resolved this error came from <a href="https://stackoverflow.com/questions/59560633/unable-to-use-apt-or-apt-get-with-the-error-message">StackOverflow</a>.</p>
+<p>The first thing that I had to do was to find out what my distribution was. To do that I ran the code below and found my distribution information:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ lsb_release -a <br>No LSB modules are available. <br>Distributor ID: Ubuntu <br>Description:    Ubuntu 18.04.5 LTS <br>Release:        18.04 <br>Codename:       bionic</code></p>
+<p>Once I ran that I was able to get my distribution information and went to <a href"https://pkgs.org/download/apt">this link</a> to find the .deb file for the apt installation for my distribution.</p>
+<p>Once I downloaded the .deb file from <a href"https://pkgs.org/download/apt">the link</a>, I ran this command, <code>sudo dpkg -i <filename>.deb</code> to install the file for my distribution's apt installation. My example:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo dpkg -i apt_1.6.1_amd64.deb</code></p>
+<p>When the installation finished, I then ran this code and that was that:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ apt --fix-broken install</code></p>
+
+<p>After successfully updating my repo lists and packages, I ran the following code to install Ruby for Ubuntu:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-add-repository ppa:brightbox/ruby-ng <br>$ sudo apt-get update <br>$ sudo apt-get install ruby2.5 ruby2.5-dev build-essential dh-autoreconf</code></p>
+
+<p>Once I had Ruby installed I ran this code to update my Ruby Gems:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem update</code></p>
+
+<p>After my Gems had been successfully updated, I ran the following code to finally install Jekyll:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem installer jekyll bundler</code></p>
+
+<p>After the Jekyll installation ran its course, I ran this code to make sure that Jekyll had properly been installed:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ jekyll -v</code></p>
 </body>
 </html>
