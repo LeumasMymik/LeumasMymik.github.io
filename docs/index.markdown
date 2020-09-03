@@ -13,6 +13,10 @@ layout: home
         body {
                 background-color:#cce9ff;
         }
+
+	.site-header  {
+		background-color:#ffe9ec;
+	}
 </style>
 
 <body>
