@@ -3,15 +3,34 @@ layout: page
 title: About
 permalink: /about/
 ---
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+<html>
+<style>
+        html, body, h1, h2, h3, h4, h5, h6, p {
+                font-family:  "Courier";
+        }
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+        pre code {
+                font-family: Consolas,"courier new";
+                color: #666666;
+                background-color: #ffe9ec;
+                padding: 2px;
+                padding-right: 7px;
+        }
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+        body {
+                background-color:#cce9ff;
+        }
 
+        .site-header {
+                background-color:#ffe9ec;
+        }
 
-[jekyll-organization]: https://github.com/jekyll
+        .site-footer {
+                background-color:#ffe9ec;
+        }
+</style>
+
+<body>
+<p>My name is Samuel Kim, and I am currently a senior at California State University, Northridge. I am working towards getting a bachelors in Computer Information Technology. This GitHub Blog will serve as a way for me to practice documentation through the form of a blog as I learn new things throughout the course of my Senior Design class.</p>
+</body>
+</html>
