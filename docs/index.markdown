@@ -17,6 +17,10 @@ layout: home
 	.site-header  {
 		background-color:#ffe9ec;
 	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
 </style>
 
 <body>
