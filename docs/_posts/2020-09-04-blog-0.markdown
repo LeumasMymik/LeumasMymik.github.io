@@ -61,9 +61,7 @@ categories: Senior-Design
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ apt --fix-broken install</code></p>
 
 <p>After successfully updating my repo lists and packages, I ran the following code to install Ruby for Ubuntu:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-add-repository ppa:brightbox/ruby-ng</code></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-get update</code></p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-get install ruby2.5 ruby2.5-dev build-essential dh-autoreconf</code></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<pre>$ sudo apt-add-repository ppa:brightbox/ruby-ng<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-get install ruby2.5 ruby2.5-dev build-essential dh-autoreconf</pre></p>
 
 <p>Once I had Ruby installed I ran this code to update my Ruby Gems:</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem update</code></p>
