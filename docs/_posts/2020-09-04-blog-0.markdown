@@ -75,6 +75,8 @@ categories: Senior-Design
 <p>After the Jekyll installation ran its course, I ran this code to make sure that Jekyll had properly been installed, which showed this:</p>
 <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ jekyll -v<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jekyll 4.1.1</pre>
 
+<br>
+<h1>Statements</h1>
 <p>After I had successfully installed Jekyll, I went ahead and created a new GitHub repository, which turned into the blog that you are looking at right now. There are plenty of resources online to get yourself started on creating a GitHub blog, so I will not be going over exactly how I set up my own blog.</p>
 <p>Another, I guess, tidbit is that I have yet to successfully change the theme of my blog. While this outline may seem like a new theme, it is still at its core the default minima theme. I was able to change the color by using elements of css and html, which can be found online as well.</p>
 <p>Overall, I think this was a very educational experience and it really helped me refresh my knowledge of linux terminal commands, which I think will be very useful this semester. Thanks for reading.</p>
