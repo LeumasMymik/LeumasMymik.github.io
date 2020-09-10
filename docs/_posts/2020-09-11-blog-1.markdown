@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "2020/09/11 Blog 1"
+date:   2020-09-10 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+</style>
+
+<body>
+<h1><b>Introduction</b></h1>
+<p>This is Blog 0, one of many to come. These blogs will serve to document my learning process and the various findings that I may have during this educational journey. The main theme of this blog will be an outline of my experiences trying to install Jekyll on windows.</p>
+<br>
+
+<h1><b>Installing <a href="https://jekyllrb.com">Jekyll</a></b></h1>
+<p><a href="https://jekyllrb.com">Jekyll</a> is a static site generator. A static site is a collection of pages contained in HTML files, and what Jekyll does is it takes some form of markup language to create those pages. Depending on what you write into the HTML files, you can create the site in any way that you can imagine.</p>
+
+<h1><a href="https://jekyllrb.com/docs/installation/#requirements">Prerequisites</a></h1>
+<p>The link attached to the heading, gives the general prerequisites for installing Jekyll, but the prerequisites that I will be mentioning and going over are for <a href="https://jekyllrb.com/docs/installation/windows/">Windows</a>. Using the Bash method, I managed to follow along with the <a href="https://jekyllrb.com/docs/installation/windows/">Windows Installation Guide</a> that was provided to successfully install Jekyll.</p>
+<p><code># To use the Bash Method on Windows, you will need to have a <a href="https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview">Windows Subsystem for Linux (WSL)</a>. I used Ubuntu.</code></p>
+<p>Once I had my WSL setup, I went ahead and opened up the terminal and ran the following to navigate to a Bash instance:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ bash</code></p>
+
+<p>After navigating to a Bash instance, I used the following code to try and update my repo lists and packages:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-get update -y && sudo apt-get upgrade -y</code></p>
+
+<br>
+<p><center>*** When I tried to run the code above I received an error message. ***</center></p>
+<p><code>apt-get: error while loading shared libraries: libapt-pkg.so.5.90: cannot open shared object file: No such file or directory</code></p>
+<p>The solution that I found, which resolved this error came from <a href="https://stackoverflow.com/questions/59560633/unable-to-use-apt-or-apt-get-with-the-error-message">StackOverflow</a>.</p>
+<p>The first thing that I had to do was to find out what my distribution was. To do that I ran the code below and found my distribution information:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ lsb_release -a<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No LSB modules are available.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distributor ID: Ubuntu<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description:    Ubuntu 18.04.5 LTS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Release:        18.04<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Codename:       bionic</pre>
+
+<p>Once I ran that I was able to get my distribution information and went to <a href="https://pkgs.org/download/apt">this link</a> to find the .deb file for the apt installation for my distribution.</p>
+<p>Once I downloaded the .deb file from <a href="https://pkgs.org/download/apt">the link</a>, I ran this command, <code>sudo dpkg -i &lt;filename&gt;.deb</code> to install the file for my distribution's apt installation. My example:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo dpkg -i apt_1.6.1_amd64.deb</code></p>
+<p>When the installation finished, I then ran this code and that was that:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ apt --fix-broken install</code></p>
+<p><center>*** End of Error Segment ***</center></p>
+
+<br>
+<p>After successfully updating my repo lists and packages, I ran the following code to install Ruby for Ubuntu:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-add-repository ppa:brightbox/ruby-ng<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-get install ruby2.5 ruby2.5-dev build-essential dh-autoreconf</pre>
+
+<p>Once I had Ruby installed I ran this code to update my Ruby Gems:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem update</code></p>
+
+<p>After my Gems had been successfully updated, I ran the following code to finally install Jekyll:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem installer jekyll bundler</code></p>
+
+<p>After the Jekyll installation ran its course, I ran this code to make sure that Jekyll had properly been installed, which showed this:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ jekyll -v<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jekyll 4.1.1</pre>
+
+<br>
+<h1><b>Statements</b></h1>
+<p>After I had successfully installed Jekyll, I went ahead and created a new GitHub repository, which turned into the blog that you are looking at right now. There are plenty of resources online to get yourself started on creating a GitHub blog, so I will not be going over exactly how I set up my own blog.</p>
+<p>Another, I guess, tidbit is that I have yet to successfully change the theme of my blog. While this outline may seem like a new theme, it is still at its core the default minima theme. I was able to change the color by using elements of css and html, which can be found online as well.</p>
+<p>Overall, I think this was a very educational experience and it really helped me refresh my knowledge of linux terminal commands, which I think will be very useful this semester. Thanks for reading.</p>
+</body>
+</html>
