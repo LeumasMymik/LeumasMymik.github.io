@@ -33,52 +33,39 @@ categories: Senior-Design
 
 <body>
 <h1><b>Introduction</b></h1>
-<p>This is Blog 0, one of many to come. These blogs will serve to document my learning process and the various findings that I may have during this educational journey. The main theme of this blog will be an outline of my experiences trying to install Jekyll on windows.</p>
+<p>This is Blog 1, and it will cover the Docker lab that we were assigned for our class.</p>
 <br>
 
-<h1><b>Installing <a href="https://jekyllrb.com">Jekyll</a></b></h1>
-<p><a href="https://jekyllrb.com">Jekyll</a> is a static site generator. A static site is a collection of pages contained in HTML files, and what Jekyll does is it takes some form of markup language to create those pages. Depending on what you write into the HTML files, you can create the site in any way that you can imagine.</p>
+<h1><b>Installing <a href="https://docs.docker.com/get-docker/">Docker</a></b></h1>
+<p><a href="https://docs.docker.com/get-docker/">Docker</a> is a tool that lets you create virtual containers to run and test certain applications and services.</p>
+<p>To install Docker, on <a href="https://docs.docker.com/docker-for-windows/install/">Windows</a> there are some requirements. Some important requirements to keep in mind when installing Docker on Windows would be to enable <code>Hyper-v</code> and to enable <code>Containers</code> Windows features. Other than that you may need to enable the WSL 2 feature on Windows and download the <a href="https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel">Linux Kernel update package</a>.</p>
+<p>Once you have all of the requirements met, installing Docker is very straight forward, you can use this <a href="https://docs.docker.com/docker-for-windows/install/">link</a> to download Docker for Windows through the Docker Hub.</p>
 
-<h1><a href="https://jekyllrb.com/docs/installation/#requirements">Prerequisites</a></h1>
-<p>The link attached to the heading, gives the general prerequisites for installing Jekyll, but the prerequisites that I will be mentioning and going over are for <a href="https://jekyllrb.com/docs/installation/windows/">Windows</a>. Using the Bash method, I managed to follow along with the <a href="https://jekyllrb.com/docs/installation/windows/">Windows Installation Guide</a> that was provided to successfully install Jekyll.</p>
-<p><code># To use the Bash Method on Windows, you will need to have a <a href="https://ubuntu.com/tutorials/ubuntu-on-windows#1-overview">Windows Subsystem for Linux (WSL)</a>. I used Ubuntu.</code></p>
-<p>Once I had my WSL setup, I went ahead and opened up the terminal and ran the following to navigate to a Bash instance:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ bash</code></p>
+<h1><b><a href="https://canvas.csun.edu/courses/81715/files/10176009/download?wrap=1">Lab 1: LAMP Stack</a></b></h1>
+<p>Once you have Docker installed, you can begin working on the lab. The lab itself was fairly easy, it was mainly just installing various packages and services, such as apache2, and testing to see if they were properly installed by starting the services and checking our localhost and the port that we set in the beginning.</p>
 
-<p>After navigating to a Bash instance, I used the following code to try and update my repo lists and packages:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo apt-get update -y && sudo apt-get upgrade -y</code></p>
+<h1><b>Issues</b></h1>
+<p>I ran into some issues trying to download some PHP dependencies. The dependencies I had were as listed below:</p>
+<p><code># PHP Dependencies: php7.2-cli, php7.2-curl, php7.2-gd, php7.2-mbstring, php7.2-mysql, and php7.2-xml</code></p>
+<p>The command we were instructed to run was:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ apt-get install -y php libapache2-mod-php php-mysql php7.2-cli php7.2-curl php7.2-gd php7.2-mbstring php7.2-mysql php7.2-xml php-xml</code></p>
+<p>But, when I tried to run the command above, I was hit with these error messages:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get install -y php libapache2-mod-php php-mysql php7.2-cli php7.2-curl php7.2-gd php7.2-mbstring php7.2-mysql php7.2-xml php-xml<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Unable to locate package php7.2-cli<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by glob 'php7.2-cli'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by regex 'php7.2-cli'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Unable to locate package php7.2-curl<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by glob 'php7.2-curl'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by regex 'php7.2-curl'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Unable to locate package php7.2-gd<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by glob 'php7.2-gd'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by regex 'php7.2-gd'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Unable to locate package php7.2-mbstring<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by glob 'php7.2-mbstring'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by regex 'php7.2-mbstring'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Unable to locate package php7.2-mysql<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by glob 'php7.2-mysql'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by regex 'php7.2-mysql'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Unable to locate package php7.2-xml<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by glob 'php7.2-xml'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E: Couldn't find any package by regex 'php7.2-xml'<br></pre>
+<p>So from the looks of it, it looked like my Docker container was having a bit of trouble finding the 7.2 version specific PHP dependencies. To try and resolve these errors, I tried manually adding the ondrej PPA from a thread that I had found on <a href="https://stackoverflow.com/questions/50947291/error-while-installing-php-7-2-in-ubuntu-17-04">Stack Overflow</a>, and from which I tried the following commands to no avail:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ add-apt-repository ppa:ondrej/php<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get install php7.2</pre>
+<p>It seemed like when running these commands, my container could not locate the specified repository, so I skipped that command and updated successfully, and the command to install php7.2 ran and successfully installed, but when i went to check my php version <code>php -v</code> it did not show up as version 7.2, but it came up as version 7.4.</p>
+<p>The next thing I tried came from a guide on <a href="https://tecadmin.net/install-php-7-on-ubuntu/">Installing PHP on Ubuntu</a> that I had found through various Google searches. Following the guide I ran the following code, also to no avail:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get install software-properties-common<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ add-apt-repository ppa:ondrej/php<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get install -y php7.2</pre>
+<p>This solution was basically the same as the one I had found on Stack Overflow except it had an extra command, which did run successfully, but again my container could not locate the repository, and the update and install commands ran successfully, but the cersion remained as 7.4.</p>
+<p>To move past these errors, I ran the command without the specified versions, so for example:</p>
+<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ apt-get install -y php libapache2-mod-php php-mysql php-cli php-curl php-gd php-mbstring php-mysql php-xml php-xml</code>
+<p>With the issue assumed to be resolved, I followed the steps listed and changed specified files and cloned a GitHub repository. Once I had reached the end, I ran the last command <code>composer install</code>, which ran successfully, but when I tried to test it by opening up my <code>localhost:8080</code>, the page would not load and it gave me a message that something had gone wrong.</p>
 
-<br>
-<p><center>*** When I tried to run the code above I received an error message. ***</center></p>
-<p><code>apt-get: error while loading shared libraries: libapt-pkg.so.5.90: cannot open shared object file: No such file or directory</code></p>
-<p>The solution that I found, which resolved this error came from <a href="https://stackoverflow.com/questions/59560633/unable-to-use-apt-or-apt-get-with-the-error-message">StackOverflow</a>.</p>
-<p>The first thing that I had to do was to find out what my distribution was. To do that I ran the code below and found my distribution information:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ lsb_release -a<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;No LSB modules are available.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Distributor ID: Ubuntu<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description:    Ubuntu 18.04.5 LTS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Release:        18.04<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Codename:       bionic</pre>
+<h1><b>Solution?</b></h1>
+<p>I deleted and reattempted this lab 4 separate times and all 4 times, I had gotten the same errors and tried the same solutions, which ended in the same result. Finally, the absolute genius that I was, doing the same exact thing and expecting a different result everytime, had the big brain, 5head, idea to try and attempt the lab on a different device. So I tried it on my mac, and thought might as well, I have already done the exercise 4 times already, albeit unsuccessfully, and I attempted the lab, doing exactly as I had before... and it worked.</p>
+<p>With the lab now completed, I went to write this blog post, and wanting to include the exact error messages that I had gotten, I had reattempted the lab on my pc in a fresh Docker container, since I deleted the previous containers out of frustration, to try and get the exact errors that I had gotten the previous 4 times that I had attempted the lab, and low and behold this absolute joke of a computer finally decides to work.</p>
 
-<p>Once I ran that I was able to get my distribution information and went to <a href="https://pkgs.org/download/apt">this link</a> to find the .deb file for the apt installation for my distribution.</p>
-<p>Once I downloaded the .deb file from <a href="https://pkgs.org/download/apt">the link</a>, I ran this command, <code>sudo dpkg -i &lt;filename&gt;.deb</code> to install the file for my distribution's apt installation. My example:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ sudo dpkg -i apt_1.6.1_amd64.deb</code></p>
-<p>When the installation finished, I then ran this code and that was that:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ apt --fix-broken install</code></p>
-<p><center>*** End of Error Segment ***</center></p>
-
-<br>
-<p>After successfully updating my repo lists and packages, I ran the following code to install Ruby for Ubuntu:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-add-repository ppa:brightbox/ruby-ng<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-get update<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ sudo apt-get install ruby2.5 ruby2.5-dev build-essential dh-autoreconf</pre>
-
-<p>Once I had Ruby installed I ran this code to update my Ruby Gems:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem update</code></p>
-
-<p>After my Gems had been successfully updated, I ran the following code to finally install Jekyll:</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>$ gem installer jekyll bundler</code></p>
-
-<p>After the Jekyll installation ran its course, I ran this code to make sure that Jekyll had properly been installed, which showed this:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ jekyll -v<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jekyll 4.1.1</pre>
-
-<br>
-<h1><b>Statements</b></h1>
-<p>After I had successfully installed Jekyll, I went ahead and created a new GitHub repository, which turned into the blog that you are looking at right now. There are plenty of resources online to get yourself started on creating a GitHub blog, so I will not be going over exactly how I set up my own blog.</p>
-<p>Another, I guess, tidbit is that I have yet to successfully change the theme of my blog. While this outline may seem like a new theme, it is still at its core the default minima theme. I was able to change the color by using elements of css and html, which can be found online as well.</p>
-<p>Overall, I think this was a very educational experience and it really helped me refresh my knowledge of linux terminal commands, which I think will be very useful this semester. Thanks for reading.</p>
+<h1><b>Conclusion</b></h1>
+<p>In all honesty, I have no idea what I did, or what I didn't do that made this work. It just worked maybe, I had created the container incorrectly the previous times, or maybe something had updated while I was away from the computer, I have no idea what had happened differently this time around for it to install the PHP dependencies successfully. In moments like these, I feel like you just have to take the win and maybe years down the line something will click and you'll realize what you did wrong, but I could bet on my life that I had followed the lab and put in the commands word for word, bar for bar each and everytime I had attempted it. </p>
 </body>
 </html>
