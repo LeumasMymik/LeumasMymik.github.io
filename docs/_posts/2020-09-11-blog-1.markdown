@@ -63,11 +63,9 @@ categories: Senior-Design
 
 <h1><b>Solution?</b></h1>
 <p>I deleted and reattempted this lab 4 separate times and all 4 times, I had gotten the same errors and tried the same solutions, which ended in the same result. Finally, the absolute genius that I was, doing the same exact thing and expecting a different result everytime, had the big brain, 5head, idea to try and attempt the lab on a different device. So I tried it on my mac, and thought might as well, I have already done the exercise 4 times already, albeit unsuccessfully, and I attempted the lab, doing exactly as I had before... and it worked.</p>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/macsuccess.png">
-<br>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/macsuccess.png"><br>
 <p>With the lab now completed, I went to write this blog post, and wanting to include the exact error messages that I had gotten, I had reattempted the lab on my pc in a fresh Docker container, since I deleted the previous containers out of frustration, to try and get the exact errors that I had gotten the previous 4 times that I had attempted the lab, and low and behold this absolute joke of a computer finally decides to work.</p>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/windowssuccess.png">
-<br>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/windowssuccess.png"><br>
 
 <h1><b>Conclusion</b></h1>
 <p>In all honesty, I have no idea what I did, or what I didn't do that made this work. It just worked maybe, I had created the container incorrectly the previous times, or maybe something had updated while I was away from the computer, I have no idea what had happened differently this time around for it to install the PHP dependencies successfully. In moments like these, I feel like you just have to take the win and maybe years down the line something will click and you'll realize what you did wrong, but I could bet on my life that I had followed the lab and put in the commands word for word, bar for bar each and everytime I had attempted it. </p>
