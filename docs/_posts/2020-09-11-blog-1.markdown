@@ -68,6 +68,6 @@ categories: Senior-Design
 <p><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/windowssuccess.png"></p><br>
 
 <h1><b>Conclusion</b></h1>
-<p>In all honesty, I have no idea what I did, or what I didn't do that made this work. It just worked maybe, I had created the container incorrectly the previous times, or maybe something had updated while I was away from the computer, I have no idea what had happened differently this time around for it to install the PHP dependencies successfully. In moments like these, I feel like you just have to take the win and maybe years down the line something will click and you'll realize what you did wrong, but I could bet on my life that I had followed the lab and put in the commands word for word, bar for bar each and everytime I had attempted it. </p>
+<p>In all honesty, I have no idea what I did, or what I didn't do that made this work. It just worked maybe, I had created the container incorrectly the previous times, or maybe something had updated while I was away from the computer, I have no idea what had happened differently this time around for it to install the PHP dependencies successfully. In moments like these, I feel like you just have to take the win and maybe years down the line something will click and I'll realize what I did wrong, but I could bet on my life that I had followed the lab and put in the commands word for word, bar for bar each and everytime I had attempted it. </p>
 </body>
 </html>
