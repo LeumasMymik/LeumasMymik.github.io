@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "2020/09/18 Blog 1"
+title:  "2020/09/18 Blog 2"
 date:   2020-09-17 12:40:45 -0700
 categories: Senior-Design
 ---
@@ -38,19 +38,22 @@ categories: Senior-Design
 
 <h1><b>Background</b></h1>
 <p>For some background, I already has an AWS account setup for a previous class with professor Ilia Benson, but we ended up not using AWS, and learned a bunch of Docker, since a majority of the students received an email stating that their application for AWS had been denied. I was also one of the students that had been denied, but I never followed up on my application due to the professor's decision to move on using Docker, but now I would be needing it for this Senior Design class.</p>
+<br>
 
 <h1><b><a href="https://www.awseducate.com/registration#APP_TYPE">Creating an AWS Educate Account</a></b></h1>
-<p>To get started with creating an AWS Educate Account, you are first going to have to sign up for a regular AWS account, which you can do at this link <a href="https://aws.amazon.com/resources/create-account/">here</a> and you can go ahead and follow this <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">guide</a> to create and activate your account.</p>
+<p>To get started with creating an AWS Educate Account, you are first going to have to sign up for a regular AWS account, which you can do at this link <a href="https://aws.amazon.com/resources/create-account/"><u>here</u></a> and you can go ahead and follow this <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/"><u>guide</u></a> to create and activate your account.</p>
 
-<p>Once you have your AWS account ready, you can go ahead and use this <a href="https://www.awseducate.com/registration#APP_TYPE">link</a> to apply for an AWS Educate account. Filling out the application should be fairly straight forward once you select one of the following roles:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roles:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Educator<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;US Veteran<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Institution<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Company/Recruiter</pre>
+<p>Once you have your AWS account ready, you can go ahead and use this <a href="https://www.awseducate.com/registration#APP_TYPE"><u>link</u></a> to apply for an AWS Educate account. Filling out the application should be fairly straight forward once you select one of the following roles:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Roles:</u><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Student</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Educator</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>US Veteran</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Institution</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Company/Recruiter</u></pre>
 
 <p>Once you finish filling out the form you should receive an email stating that a case has been made for you, and from this point on you would simply wait for either a confirmation or rejection email from the AWS Support team. If you do get rejected, you can update your case and try to refute their rejection, which I will write a little bit more about based on my experiences later. Once you are accepted, you are presented with a link to set up a password for your AWS Educate account, and once setup, you can navigate to the <code>AWS Account</code> tab, which should take you to a page with the option to navigate to your AWS Educate Starter Account. Then once you click that you should be good to go with your AWS Educate account.</p>
+<br>
 
 <h1><b>Issues</b></h1>
 <p>As I mentioned in the intro, I had previously already filled out an AWS Educate application a little over a year ago, so when I attempted to sign up again for an AWS Educate account, it prmopted me that an account already existed. Thankfully, I was able top locate the year old rejection email and update that case with more information regarding my situation, that I had applied a little over a year ago, got rejected, and never touched the account again. A representative from the AWS Support team was able to reach back out to me and said:</p>
 <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you for reaching back to us with the requested verification information<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and detailed use case.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to assist you further, I did research and was able to find an<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application created by you in Aug 2019 which is still rejected final. Please note: as<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the application was created way too long and with that our system doesn't<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;allow us to process your application further.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not to worry though, to best assist you with this situation I've gone ahead and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;voided/deleted your old application from our records. With that said, you will<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now be able to re-apply for Educate program.</pre>
 <p>After receiving that message, I was able to apply again and this time around my application for AWS Educate had been approved. I did wait around three days before setting up my password for my AWS Educate account, and I received an email saying that my account had been disapproved, but I just went back to that approved email and used the link provided in that message to set up my password, which completed my AWS Educate account setup.</p>
+<br>
 
 <h1><b>Conclusion</b></h1>
 <p>I guess in conclusion, follow up on cases when possible as they should be able to either resolve the issue or lead you to a solution. Another thing I would conclude on would be to not wait so long to set up the account after getting access to it when you worked and stressed out about it for so long.</p>
