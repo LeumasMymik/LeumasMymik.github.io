@@ -67,7 +67,8 @@ categories: Senior-Design
 <p>Once you have completed these steps you should have some thing that looks like this:</p>
 
 <br>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" style="width:50%" style="height:50%">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" width="828px" height="1792px">
+<br>
 <br>
 
 <p>Once you have your Shortcut setup, we can now test it out by selecting the tiny play button in the bottom right corner. Once started, you will see these prompts:</p>
