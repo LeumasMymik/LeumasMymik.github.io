@@ -57,10 +57,12 @@ categories: Senior-Design
 
 <code>What would you like to set a reminder for?</code>
 <br>
+<br>
 
 <p>After we have that set, we want to go ahead and put in another <code>Ask For Input</code> scripting option to get the date and time to receive a notification. To do this we can again navigate to <code>Scripting > Notification > Ask For Input</code>, then once we have it set, this time we want to change <code>Text</code> to <code>Date and Time</code> and then we want to go ahead and fill out the <code>Prompt</code> section with a prompt to select a date and time. For Example:</p>
 
 <code>What date and time would you like to set this reminder?</code>
+<br>
 <br>
 
 <p>After we have entered in both of our prompts, we can now add in the <code>Add New Event</code> function within the Calendar application which will create a new event in our Calendar application. You can use the Reminders application, I just don't like it personally.</p>
