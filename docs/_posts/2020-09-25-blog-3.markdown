@@ -29,6 +29,15 @@ categories: Senior-Design
 	.site-footer {
 		background-color:#ffe9ec;
 	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
 </style>
 
 <body>
@@ -40,24 +49,41 @@ categories: Senior-Design
 <p>To create a new shortcut you will first need to navigate to the shortcuts application on your iPhone, it should look something like this:</p>
 <br>
 
-<center><img src=""></center>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/appleShortcutsIcon.png"></center>
 
-<h1><b><a href="https://www.awseducate.com/registration#APP_TYPE">Creating an AWS Educate Account</a></b></h1>
-<p>To get started with creating an AWS Educate Account, you are first going to have to sign up for a regular AWS account, which you can do at this link <a href="https://aws.amazon.com/resources/create-account/"><u>here</u></a> and you can go ahead and follow this <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/"><u>guide</u></a> to create and activate your account.</p>
+<p>Once you have found and selected the Shortcuts application within: <code>My Shortcuts > All Shortcuts</code> you should be able to see a <code>"+"</code> option. Go ahead and click that, once you do you should see the option to <code>+ Add Action</code>. The shortcut we are going to create will prompt us for a "reminder" and a date and time to receive a notification.</p>
+<p>To get started, after selecting the <code>+ Add Action</code> button, we first want to be able to prompt the user, to do that we will need to navigate to the <code>Ask For Input</code> scripting option: <code>Scripting > Notification > Ask For Input</code>. This option prompts the user to enter a piece of information.</p>
+<p>Once we have selected the <code>Ask For Input</code> option, it will ask for <code>Text</code> and a <code>Prompt</code>. To prompt the user to enter a "reminder" we can leave <code>Text</code> as is, but we want to go ahead and enter a prompt for input into the <code>Prompt</code> section. For Example:</p>
 
-<p>Once you have your AWS account ready, you can go ahead and use this <a href="https://www.awseducate.com/registration#APP_TYPE"><u>link</u></a> to apply for an AWS Educate account. Filling out the application should be fairly straight forward once you select one of the following roles:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Roles:<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Student</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Educator</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>US Veteran</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Institution</u><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Company/Recruiter</u></pre>
+<pre>What would you like to set a reminder for?</pre>
 
-<p>Once you finish filling out the form you should receive an email stating that a case has been made for you, and from this point on you would simply wait for either a confirmation or rejection email from the AWS Support team. If you do get rejected, you can update your case and try to refute their rejection, which I will write a little bit more about based on my experiences later. Once you are accepted, you are presented with a link to set up a password for your AWS Educate account, and once setup, you can navigate to the <code>AWS Account</code> tab, which should take you to a page with the option to navigate to your AWS Educate Starter Account. Then once you click that you should be good to go with your AWS Educate account.</p>
+<p>After we have that set, we want to go ahead and put in another <code>Ask For Input</code> scripting option to get the date and time to receive a notification. To do this we can again navigate to <code>Scripting > Notification > Ask For Input</code>, then once we have it set, this time we want to change <code>Text</code> to <code>Date and Time</code> and then we want to go ahead and fill out the <code>Prompt</code> section with a prompt to select a date and time. For Example:</p>
+
+<pre>What date and time would you like to set this reminder?</pre>
+
+<p>After we have entered in both of our prompts, we can now add in the <code>Add New Event</code> function within the Calendar application which will create a new event in our Calendar application. You can use the Reminders application, I just don't like it personally.</p>
+<p>To insert the <code>Add New Event</code> function for the Calendar application we can navigate to it by selcting: <code>Apps > Calendar > Add New Event</code>. Once you have the option inserted, it asks for a <code>Title</code>, <code>Tomorrow at noon</code>, and <code>Tomorrow at 1pm</code>. For the <code>Title</code> section, we want to go ahead and select the <code>Select a Magic Variable</code> option and we can now select the <code>Provided Input</code> for the very first prompt, then for the remaining two time slots we can, again using the <code>Select a Magic Variable</code> option, select a <code>Provided Input</code>, but this time for both sections we want to go ahead and select the <code>Provided Input</code> for the second prompt.</p>
+<p>After selecting the variables, we want to open up the <code>Show More</code> section below and then select an <code>Alert</code> option. I chose the <code>At time of event</code> option.</p>
+<p>Once you have completed these steps you should have some thing that looks like this:</p>
 <br>
 
-<h1><b>Issues</b></h1>
-<p>As I mentioned in the intro, I had previously already filled out an AWS Educate application a little over a year ago, so when I attempted to sign up again for an AWS Educate account, it prmopted me that an account already existed. Thankfully, I was able top locate the year old rejection email and update that case with more information regarding my situation, that I had applied a little over a year ago, got rejected, and never touched the account again. A representative from the AWS Support team was able to reach back out to me and said:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Thank you for reaching back to us with the requested verification information<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and detailed use case.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In order to assist you further, I did research and was able to find an<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application created by you in Aug 2019 which is still rejected final. Please<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;note: as the application was created way too long and with that our system<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; doesn't allow us to process your application further.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not to worry though, to best assist you with this situation I've gone ahead and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;voided/deleted your old application from our records. With that said, you will<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;now be able to re-apply for Educate program."</pre>
-<p>After receiving that message, I was able to reapply for the Educate account and this time around my application for AWS Educate had been approved. I did wait around three days before setting up my password for my AWS Educate account, and I received an email saying that my account had been disapproved, but I just went back to that approved email and used the link provided in that message to set up my password, which completed my AWS Educate account setup.</p>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG"></center>
+
+<p>Once you have your Shortcut setup, we can now test it out by selecting the tiny play button in the bottom right corner. Once started, you will see these prompts:</p>
+
+<div class="row">
+<div class="column">
+   <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/reminderPrompt.PNG" style="width:100%">
+</div>
+<div class="column">
+   <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/datetimePrompt.PNG" style="width:100%">
+</div>
+</div>
+
+<p>This Shortcut simply creates a new event using the Calendar application. I use it like a reminder because I prefer the notification that I receive from the event, but again this is just personal preference.</p>
 <br>
 
 <h1><b>Conclusion</b></h1>
-<p>I guess in conclusion, follow up on cases when possible as they should be able to either resolve the issue or lead you to a solution. Another thing I would conclude on would be to not wait so long to set up the account after getting access to it when you worked and stressed out about it for so long.</p>
+<p>I think there are a lot of more useful uses for this new Shortcuts feature that Apple implemented within the ios 14 update, and I am very excited to explore more of the capabilities this feature provides. I thought it was really interesting having a sort of drag and drop "programming" experience on an iPhone of all things. Overall, I think it was a very educational experience.</p>
 </body>
 </html>
