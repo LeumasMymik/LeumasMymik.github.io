@@ -66,11 +66,9 @@ categories: Senior-Design
 <p>After selecting the variables, we want to open up the <code>Show More</code> section below and then select an <code>Alert</code> option. I chose the <code>At time of event</code> option.</p>
 <p>Once you have completed these steps you should have some thing that looks like this:</p>
 
-<div class="row">
-<div class="column">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" style="width:100%">
-</div>
-</div>
+<br>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" style="width:50%" style="height:50%">
+<br>
 
 <p>Once you have your Shortcut setup, we can now test it out by selecting the tiny play button in the bottom right corner. Once started, you will see these prompts:</p>
 
