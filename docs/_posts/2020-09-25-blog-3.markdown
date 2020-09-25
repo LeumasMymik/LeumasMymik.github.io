@@ -67,7 +67,7 @@ categories: Senior-Design
 <p>Once you have completed these steps you should have some thing that looks like this:</p>
 
 <br>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" width="828px" height="1792px">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" height="500px">
 <br>
 <br>
 
