@@ -55,7 +55,7 @@ categories: Senior-Design
 <p>To get started, after selecting the <code>+ Add Action</code> button, we first want to be able to prompt the user, to do that we will need to navigate to the <code>Ask For Input</code> scripting option: <code>Scripting > Notification > Ask For Input</code>. This option prompts the user to enter a piece of information.</p>
 <p>Once we have selected the <code>Ask For Input</code> option, it will ask for <code>Text</code> and a <code>Prompt</code>. To prompt the user to enter a "reminder" we can leave <code>Text</code> as is, but we want to go ahead and enter a prompt for input into the <code>Prompt</code> section. For Example:</p>
 
-<pre>What would you like to set a reminder for?</pre>
+<code>What would you like to set a reminder for?</code>
 
 <p>After we have that set, we want to go ahead and put in another <code>Ask For Input</code> scripting option to get the date and time to receive a notification. To do this we can again navigate to <code>Scripting > Notification > Ask For Input</code>, then once we have it set, this time we want to change <code>Text</code> to <code>Date and Time</code> and then we want to go ahead and fill out the <code>Prompt</code> section with a prompt to select a date and time. For Example:</p>
 
@@ -65,9 +65,12 @@ categories: Senior-Design
 <p>To insert the <code>Add New Event</code> function for the Calendar application we can navigate to it by selcting: <code>Apps > Calendar > Add New Event</code>. Once you have the option inserted, it asks for a <code>Title</code>, <code>Tomorrow at noon</code>, and <code>Tomorrow at 1pm</code>. For the <code>Title</code> section, we want to go ahead and select the <code>Select a Magic Variable</code> option and we can now select the <code>Provided Input</code> for the very first prompt, then for the remaining two time slots we can, again using the <code>Select a Magic Variable</code> option, select a <code>Provided Input</code>, but this time for both sections we want to go ahead and select the <code>Provided Input</code> for the second prompt.</p>
 <p>After selecting the variables, we want to open up the <code>Show More</code> section below and then select an <code>Alert</code> option. I chose the <code>At time of event</code> option.</p>
 <p>Once you have completed these steps you should have some thing that looks like this:</p>
-<br>
 
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG"></center>
+<div class="row">
+<div class="column">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/final.PNG" style="width:100%">
+</div>
+</div>
 
 <p>Once you have your Shortcut setup, we can now test it out by selecting the tiny play button in the bottom right corner. Once started, you will see these prompts:</p>
 
