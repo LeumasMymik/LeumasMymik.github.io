@@ -216,7 +216,7 @@ categories: Senior-Design
 
 <h1><b>Conclusion</b></h1>
 <p>With that we should be able to build a docker container automatically that has LAMP Stack setup and ready to use as soon as we build and run it using the docker file that we created.</p>
-<p>To check our work you can use the <code>docker build -t &#60;image&#62</code> command, which should create an automatically setup container. Then you should be able to run the container and navigate to <code>localhost:8080</code>and see the working site.</p>
+<p>To check our work you can use the <code>docker build -t &#60;image&#62;</code> command, which should create an automatically setup container. Then you should be able to run the container and navigate to <code>localhost:8080</code>and see the working site.</p>
 <br>
 
 <h1><b>Resources</b></h1>
