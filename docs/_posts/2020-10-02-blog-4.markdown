@@ -222,7 +222,9 @@ categories: Senior-Design
 <h1><b>Resources</b></h1>
 <code><u>
 <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile Reference Page</a>
+</u></code>
 <br>
+<code><u>
 <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Dockerfile Best Practices</a>
 </u></code>
 </body>
