@@ -53,31 +53,31 @@ categories: Senior-Design
 <p>To get started on our docker file that will automatically setup a LAMP Stack in a fresh docker container, we need to select a base image for our docker container by using the <code>FROM</code> instruction. We will be using Ubuntu version 18.04, and so our docker file at the moment looks something like this:</p>
 <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04</pre>
 <p>If we take a second here to think about the instruction in our docker file, we have just set up our docker container using the Ubuntu version 18.04 as our base image. Now with that in mind to initialize our ubuntu setup we should first update the list of available packages and then upgrade them using the <code>apt-get</code> command. To use this command in our docker file we can use the <code>RUN</code> instruction, and so our docker file should now look something like this:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04<br>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y</pre>
 <p>To keep our automation process completely free of user interaction, we have added the <code>-y</code> at the end, which should answer the <code>"Would you like to continue [Y/n]: "</code> prompt when running the command.</p>
 <br>
 
 <h1><b>Installing</b></h1>
 <p>With our package lists updates and our packages upgraded, we can now begin installing the tools that we need to make our automatic LAMP Stack setup possible using our docker file. First we can install the apache2 service, which is a web server that we can use to host a site in our docker container which uses a linux image. Along with apache2, we will be installing git, curl, zip, mysql-client, php, and some php dependencies. We will need these for a future step. So for now our docker file should look something like this:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client<br>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;</pre>
 <p>Since we do want this docker file to run without any input, we have used the <code>ARG</code> instruction to set our configuration dialogs as noninteractive using the <code>DEBIAN&lowbar;FRONTEND=noninteractive</code> environment variable.</p>
 <br>
@@ -85,52 +85,52 @@ categories: Senior-Design
 <h1><b>Cloning Github Repository</b></h1>
 <p>With all of the necessary tools installed, we can move onto cloning a github repository that has an application that we can use, but to do that we need to change to a specific directory, <code>/var/www/html</code>, to do this we can use the <code>WORKDIR</code> instruction to change our working directory in our docker file.</p>
 <p>Once we have changed into our new working directory, we can clone our github repository, by again, using the <code>RUN</code> instruction in our dockerfile, so our docker file should looks something like this with our instructions to change working directory and git clone:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client<br>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a><br></pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a></pre>
 <p>With out github repository cloned into our specified directory, we need to change the owner and group of all of the files in the directory and create a symbolic link. To do this we can first change the owner and group using the <code>chown</code> command and then we can include symbolic links by using the <code>ln</code> command. We can implement these commands by using the <code>RUN</code> instruction in our docker file:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client<br>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN chown -hR www-data:www-data affinity/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN chown -hR www-data:www-data affinity/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN ["ln", "-s", "/var/www/html/affinity/public", "public"]</pre>
 <p>We put the command to create a symlink in exec form, and in doing so, it calls executable directly.</p>
 <br>
@@ -138,32 +138,35 @@ categories: Senior-Design
 <h1><b>Editing Configuration Files</b></h1>
 <p>Now that we have created a symlink, we need to edit our DocumentRoot in our default configuration file, <code>000-default.conf</code>, so that apache can use the website from the symlink that we created. To do edit the configuration file, we are going to have to utilize the <code>sed</code> command. We will also need to set an environment variable using the <code>ENV</code> instruction in our docker file to update our document root.</p>
 <p>We will also need to update our <code>apache2.conf</code> file, which can be done using the same command above. Docker file check:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client<br>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENV APACHE&lowbar;DOCUMENT&lowbar;ROOT /var/www/html/public
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN chown -hR www-data:www-data affinity/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN ["ln", "-s", "/var/www/html/affinity/public", "public"]<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -ri -e 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/public#' /etc/apache2/sites-available/000-default.conf<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's/Require all denied/Require all granted/g' /etc/apache2/apache2.conf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN chown -hR www-data:www-data affinity/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN ["ln", "-s", "/var/www/html/affinity/public", "public"]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -ri -e 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/public#' /etc/apache2/sites-available/000-default.conf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's/Require all denied/Require all granted/g' /etc/apache2/apache2.conf
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's#Directory /var/www/#Directory /var/www/html/public#' /etc/apache2/apache2.conf</pre>
 <br>
 
@@ -174,38 +177,41 @@ categories: Senior-Design
 <br>
 
 <h1><b>Docker File</b></h1>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client<br>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM ubuntu:18.04
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENV APACHE&lowbar;DOCUMENT&lowbar;ROOT /var/www/html/public
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN chown -hR www-data:www-data affinity/<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN ["ln", "-s", "/var/www/html/affinity/public", "public"]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get update && apt-get upgrade -y
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y git &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apache2 &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zip &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y mysql-client
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -ri -e 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/public#' /etc/apache2/sites-available/000-default.conf<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's/Require all denied/Require all granted/g' /etc/apache2/apache2.conf<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's#Directory /var/www/#Directory /var/www/html/public#' /etc/apache2/apache2.conf<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARG DEBIAN&lowbar;FRONTEND=noninteractive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN apt-get install -y php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;libapache2-mod-php &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-cli &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-curl &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-gd &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mbstring &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-mysql &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php7.2-xml &bsol;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php-xml &bsol;
 <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html/affinity"<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN composer install<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN git clone <a href="https://github.com/csuntechlab/affinity.git">https://github.com/csuntechlab/affinity.git</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN chown -hR www-data:www-data affinity/
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN ["ln", "-s", "/var/www/html/affinity/public", "public"]
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -ri -e 's#DocumentRoot /var/www/html#DocumentRoot /var/www/html/public#' /etc/apache2/sites-available/000-default.conf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's/Require all denied/Require all granted/g' /etc/apache2/apache2.conf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN sed -i 's#Directory /var/www/#Directory /var/www/html/public#' /etc/apache2/apache2.conf
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORKDIR "/var/www/html/affinity"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RUN composer install
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CMD ["apachectl", "-D", "FOREGROUND"]</pre>
 
 <h1><b>Conclusion</b></h1>
@@ -214,8 +220,9 @@ categories: Senior-Design
 <br>
 
 <h1><b>Resources</b></h1>
+<pre>
 <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile Reference Page</a>
 <a href="https://docs.docker.com/develop/develop-images/dockerfile_best-practices/">Dockerfile Best Practices</a>
-<pre></pre>
+</pre>
 </body>
 </html>
