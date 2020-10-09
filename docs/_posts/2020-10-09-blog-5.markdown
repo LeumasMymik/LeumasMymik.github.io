@@ -1,0 +1,86 @@
+---
+layout: post
+title:  "2020/10/09 Blog 5"
+date:   2020-10-09 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Introduction</b></h1>
+<p>This blog will document some instructions on how to use CSS in an HTML site for a more responsive and accessible site, that you can follow.</p>
+<br>
+
+<h1><b>Scalable Images Using CSS</b></h1>
+<p>When creating an HTML site with images, sizing the image can play a very large role in determining the presentablility of the site. One option to keep in mind when sizing an image is when an end user of the site changes the size of the browser window. When the browser window shrinks, if the image does not accomodate for that shift in size, the image will become a hinderance in the end user's perception of the site.</p>
+<p>To overcome this issue we can use CSS to create scalable images, or images that will increase or decrease in size based on the size of the browser window.</p>
+<br>
+
+<h1><b>Embedding and Image in HTML</b></h1>
+<p>First we would need to embed an image within our HTML file using the <code>&lt;img&gt;</code> tag:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="https://pbs.twimg.com/profile&lowbar;images/1166897214708432902/hi45ODz&lowbar;&lowbar;400x400.jpg" alt="Astronaut"&gt;</pre>
+<p>This img tag should give us a lovely image of an astronaut in our HTML site, and if the image source cannot be found, in place of the image we will see the defined alternate within <code>alt=""</code>, which in our case would be astronaut.</p>
+<br>
+<h1><b>Making the CSS</b></h1>
+<p>With our image created, we can start working on the CSS class to make our images scalable in response to an end user shrinking or increasing their browser window.</p>
+<p>To create a class in CSS, we would need to name our class strating with a <code>"."</code>, for example: <code>.scalable{}</code>.</p>
+<p>Once we have the class named and ready, we can set the initial width of our image that will be attached to this class using <code>width: 50%;</code>, and we can set the height as <code>height: auto;</code>. Doing this should make sure that whatever is associated with our class scalable, it will have a width that is 50% of the browser, or any other tag and its own defined CSS stylings that it falls between. It will also make sure that the height is automatically calculated by the browser so that we do not need to worry about having our image look smooshed or streched out in any way.</p>
+<p>The CSS should look something like this:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.scalable {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 50%;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: auto;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+<p>Now that we have our image and CSS ready, we need to correlate the two together so that they can function the way we want them to. We can go back to our image and add the class using <code>class="scalable"</code>, and that should allow the image to use the CSS that we created to scale itself to size based on the size of the browser window.</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="https://pbs.twimg.com/profile&lowbar;images/1166897214708432902/hi45O
+Dz&lowbar;&lowbar;400x400.jpg" alt="Astronaut" class="scalable"&gt;</pre>
+<br>
+
+<h1><b>Example #1</b></h1>
+<p>Below is an example of the scalable image, which you can test by shrinking the size of the browser window from the bottom right corner and dragging it to size.</p>
+<center><img src="https://pbs.twimg.com/profile_images/1166897214708432902/hi45ODz__400x400.jpg" alt="Astronaut" class="scalable"></center>
+<br>
+
+<h1><b><a href="https://jsbin.com/dunovikuke/1/edit?output">Example #2</a></b></h1>
+<p>This is an example site that shows the scalable images working in different situations which you can observe through this site saved through JS Bin. You should be able to naviagte the HTML and CSS tabs at the top of the site in JS Bin to view the code for each section.</p>
+<a href="https://jsbin.com/dunovikuke/1/edit?output">Example JS Bin Site</a>
+</body>
+</html>
