@@ -70,8 +70,7 @@ categories: Senior-Design
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: auto;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
 <p>Now that we have our image and CSS ready, we need to correlate the two together so that they can function the way we want them to. We can go back to our image and add the class using <code>class="scalable"</code>, and that should allow the image to use the CSS that we created to scale itself to size based on the size of the browser window.</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="https://pbs.twimg.com/profile&lowbar;images/1166897214708432902/hi45O
-Dz&lowbar;&lowbar;400x400.jpg" alt="Astronaut" class="scalable"&gt;</pre>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="https://pbs.twimg.com/profile&lowbar;images/1166897214708432902/hi45ODz&lowbar;&lowbar;400x400.jpg" alt="Astronaut" class="scalable"&gt;</pre>
 <br>
 
 <h1><b>Example #1</b></h1>
