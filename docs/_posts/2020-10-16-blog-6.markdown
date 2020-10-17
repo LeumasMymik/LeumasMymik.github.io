@@ -75,7 +75,7 @@ categories: Senior-Design
 </pre>
 <p>With our modules and libraries imported into our script, we can now go ahead and create a <code>Client</code> that will represent our connection to Discord. The <code>Client</code> will interact with Discord APIs, but before we can interact with Discord through our bot using this python script, we are going to have to save our bot's <code>DISCORD&lowbar;TOKEN</code>.</p>
 <p>Your bot's token can be found within the <code>Bot</code> setting in the Discord Developer Portal:</p>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/token.png" alt="DISCORD TOKEN LOCATION" class="scalable"></center>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/token.png" alt="DISCORD TOKEN LOCATION"></center>
 <br>
 
 <p>Once you have your TOKEN, you can use it within the script, but it is good practice to read sensitive information,such as your bot's token, from a separate file.</p>
