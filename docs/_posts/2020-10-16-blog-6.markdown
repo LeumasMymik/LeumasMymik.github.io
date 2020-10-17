@@ -76,6 +76,8 @@ categories: Senior-Design
 <p>With our modules and libraries imported into our script, we can now go ahead and create a <code>Client</code> that will represent our connection to Discord. The <code>Client</code> will interact with Discord APIs, but before we can interact with Discord through our bot using this python script, we are going to have to save our bot's <code>DISCORD&lowbar;TOKEN</code>.</p>
 <p>Your bot's token can be found within the <code>Bot</code> setting in the Discord Developer Portal:</p>
 <center><img src="" alt="DISCORD TOKEN LOCATION" class="scalable"></center>
+<br>
+
 <p>Once you have your TOKEN, you can use it within the script, but it is good practice to read sensitive information,such as your bot's token, from a separate file.</p>
 <p>So in your text editor, you can create a <code>.txt</code> file, paste your bot's token inside, and save the file as <code>token.txt</code> within the same directory as your python script for our purpose today.</p>
 <p>Example <code>token.txt</code> File:</p>
@@ -138,8 +140,9 @@ categories: Senior-Design
 <p>Now that we have our python script, all we need to do is save and run our script to see if our bot comes online within our discord server.</p>
 <p>To run our script we need to change directories <code>cd</code> to where our python script is located. Once we are there, we can run <code>py ./scriptName.py</code> making sure to replace <code>scriptName.py</code> with your own script name.</p>
 <p>Once we run the command we should get this message:</p>
-<center><img src="" alt="Terminal Message" class="scalable"></center>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/connection.png" alt="Terminal Message" class="scalable"></center>
+<br>
 <p>And if we check our Discord server/guild, we can see that our bot is online:</p>
-<center><img src="" alt="Bot Online" class="scalable"></center>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/proof.png" alt="Bot Online" class="scalable"></center>
 </body>
 </html>
