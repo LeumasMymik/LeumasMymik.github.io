@@ -52,7 +52,7 @@ categories: Senior-Design
 
 <h1><b>Prerequisites</b></h1>
 <pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some things you will need:
+Some things you will need:
 <ul>
 <li><a href="https://support.discord.com/hc/en-us/articles/360033931551-Getting-Started">Discord Account</a></li>
 <li><a href="https://www.python.org/downloads/">Python</a></li>
