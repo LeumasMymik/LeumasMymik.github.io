@@ -1,0 +1,145 @@
+---
+layout: post
+title:  "2020/10/16 Blog 6"
+date:   2020-10-16 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Introduction</b></h1>
+<p>This blog will document the steps for writing a python script that will get a Discord Bot online.</p>
+<br>
+
+<h1><b>Prerequisites</b></h1>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some things you will need:
+<ul>
+<li><a href="https://support.discord.com/hc/en-us/articles/360033931551-Getting-Started">Discord Account</a></li>
+<li><a href="https://www.python.org/downloads/">Python</a></li>
+<li>Text Editor [optional]</li>
+</ul>
+</pre>
+<p>Keep in mind the Discord Account that you create can be used to log into the <a href="https://discord.com/developers/applications">Discord Developer Portal</a> to create the initial Discord Bot.</p>
+
+<h1><b>Creating the Python Script</b></h1>
+<p>Before creating the python script we need to install <code>discord.py</code>, a python library that implements Discord's APIs, which we need to create our python script to get our Discord Bot online.</p>
+<p>To install <code>discord.py</code> you can run the following on your terminal:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pip install -U discord.py</pre>
+<p>With the installation completed, we can go ahead and start writing our python script to get our fresh Discord Bot online.</p>
+<p>To start off our script, we will first import the library we installed to access Discord's APIs, as well as the OS module to provide functions for interacting with our operating system.</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import os
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import discord
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from discord.ext import commands
+</pre>
+<p>With our modules and libraries imported into our script, we can now go ahead and create a <code>Client</code> that will represent our connection to Discord. The <code>Client</code> will interact with Discord APIs, but before we can interact with Discord through our bot using this python script, we are going to have to save our bot's <code>DISCORD&lowbar;TOKEN</code>.</p>
+<p>Your bot's token can be found within the <code>Bot</code> setting in the Discord Developer Portal:</p>
+<center><img src="" alt="DISCORD TOKEN LOCATION" class="scalable"></center>
+<p>Once you have your TOKEN, you can use it within the script, but it is good practice to read sensitive information,such as your bot's token, from a separate file.</p>
+<p>So in your text editor, you can create a <code>.txt</code> file, paste your bot's token inside, and save the file as <code>token.txt</code> within the same directory as your python script for our purpose today.</p>
+<p>Example <code>token.txt</code> File:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DISCORD&lowbar;TOKEN</pre>
+<p>Now that we have our token in a file, we can go ahead and set a variable <code>TOKEN</code> as the value of our bot's token written in a text file. Then we can create our <code>Client</code> that will interact with Discord's API through our bot using it's token.</p>
+<p>Our python script should look something like this:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import os
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import discord
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from discord.ext import commands
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOKEN = open("token.txt","r").readline()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client = discord.Client()
+</pre>
+<p>The variable <code>TOKEN</code> is set to the value of our bot's token within our token.txt file, and the variable <code>client</code> represents our clients connection to Discord.</p>
+<p>Now that we have our <code>client</code> variable, we can use the <code>.event()</code> to register an event, and for our purposes, we would want to register when our bot is online. To do this we can use the <code>on&lowbar;ready()</code> event.</p>
+<p>Current Python Script:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import os
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import discord
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from discord.ext import commands
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOKEN = open("token.txt","r").readline()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client = discord.Client()
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@client.event
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;async def on&lowbar;ready():
+</pre>
+<p>Now that we are able to determine when our bot is logged in and setup, we can confirm that our bot is online by printing a string when our bot is online, or ready using the <code>print</code> command.</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import os
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import discord
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from discord.ext import commands
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOKEN = open("token.txt","r").readline()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client = discord.Client()
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@client.event
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;async def on&lowbar;ready():
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f'{client.user} has connected to Discord!')
+</pre>
+<p>With our python script almost complete, all we need to do now is input the instruction for our bot to run using the <code>.run()</code> decorator with out client, which should look something like this:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import os
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import discord
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from discord.ext import commands
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOKEN = open("token.txt","r").readline()
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client = discord.Client()
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@client.event
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;async def on&lowbar;ready():
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f'{client.user} has connected to Discord!')
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;client.run(TOKEN)
+</pre>
+<br>
+
+<h1><b>Confirmation</b></h1>
+<p>Now that we have our python script, all we need to do is save and run our script to see if our bot comes online within our discord server.</p>
+<p>To run our script we need to change directories <code>cd</code> to where our python script is located. Once we are there, we can run <code>py ./scriptName.py</code> making sure to replace <code>scriptName.py</code> with your own script name.</p>
+<p>Once we run the command we should get this message:</p>
+<center><img src="" alt="Terminal Message" class="scalable"></center>
+<p>And if we check our Discord server/guild, we can see that our bot is online:</p>
+<center><img src="" alt="Bot Online" class="scalable"></center>
+</body>
+</html>
