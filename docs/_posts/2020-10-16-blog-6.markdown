@@ -140,7 +140,7 @@ categories: Senior-Design
 <p>Now that we have our python script, all we need to do is save and run our script to see if our bot comes online within our discord server.</p>
 <p>To run our script we need to change directories <code>cd</code> to where our python script is located. Once we are there, we can run <code>py ./scriptName.py</code> making sure to replace <code>scriptName.py</code> with your own script name.</p>
 <p>Once we run the command we should get this message:</p>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/connection.png" alt="Terminal Message" class="scalable"></center>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/connection.png" alt="Terminal Message"></center>
 <br>
 <p>And if we check our Discord server/guild, we can see that our bot is online:</p>
 <center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/proof.png" alt="Bot Online" class="scalable"></center>
