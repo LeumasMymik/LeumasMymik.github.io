@@ -1,0 +1,138 @@
+---
+layout: post
+title:  "2020/10/23 Blog 7"
+date:   2020-10-23 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Introduction</b></h1>
+<p>This blog will document the steps for writing a python script that will take in a query and open up the first link provided on the Google search engine within the user's default browser.</p>
+<br>
+
+<h1><b>Python Packages</b></h1>
+<p>Before creating the python script we need to install the google python package, but before we can install the <code>google</code> package, we need to install the <code>beautifulsoup4</code> python package, as the google package requires a dependency from the beautifulsoup package.</p>
+<p>To install both packages you can run the following on your terminal:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pip install beautifulsoup4
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pip install google
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pip install beautifulsoup4 google
+</pre>
+<p>With the installation completed, we can go ahead and start writing our python script by importing the packages we installed to access google search from our python script, as well as the <code>webbrowser</code> module to provide functions for interacting with the default browser of the user.</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from googlesearch import search
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import webbrowser
+</pre>
+<br>
+
+<h1><b>Search and Open</b></h1>
+<p>With our modules and libraries imported into our script, we can now go ahead and start making our script.</p>
+<p>To perform a search we need to prompt the user for their question. To do that we can set a variable equal to the input from the user:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from googlesearch import search
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import webbrowser
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question = input("Enter A Question: ")
+</pre>
+<p>This will set the value of our variable <code>question</code> as the user's input. With the user's question we can now perform a search using the <code>search</code> function.</p>
+<p>Here are the parameters for the search function that we will be using:</p>
+<pre>
+<b>search(query, tld='com', lang='en', num=10, start=0, stop=None, pause=2.0)</b>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;query: what we want to search for
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tld: (top level domain) which domain we want to search our results on
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lang: language
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;num: the amount of results that we want
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start: which result we would like to start retrieving results from
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop: which result we would like to last receive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pause: time between HTTP requests
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return: returns found URLs
+</pre>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from googlesearch import search
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import webbrowser
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question = input("Enter A Question: ")
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search(question, tld="co.in", num=1, stop=1, pause=0.01)
+</pre>
+<p>Now that we have our search function created, we can implement a for loop to grab the result of the function so that we can use the result and open it up within a browser. To do that we will use the webbrowser package and it's <code>open</code> function as well as a for loop to grac the result of the search function.</p>
+<p>Like so:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from googlesearch import search
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import webbrowser
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question = input("Enter A Question: ")
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for result in search(question, tld="co.in", num=1, stop=1, pause=0.01):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(result, new=2)
+</pre>
+<br>
+
+<h1><b>Example Usage</b></h1>
+<p>This should give us a basic python script that opens up the first search result of a query on the google search engine. There are possibilities to fine tune this script to match the needs of the user.</p>
+<p>For example, let's say that our user is a studious, hard-working student who is trying to compile the answers to around 20 specific questions as a <b>study guide</b> within around 30 minutes, about the average time it takes for a quiz. With that in mind we could edit the script to check multiple sources for the query by adding key terms like <code>quizlet</code> and <code>sanfoundry</code>.</p>
+<p>Also, since there is a time limit of around 30 minutes for their <b>study guide</b>, <i>which is definitely not a quiz</i> rather than being a one and done script we can make a while loop that will never end to assist the student user in maximizing their <b>study</b> time.</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from googlesearch import search
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import webbrowser
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;immortal = True
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while immortal:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;question = input("Enter A Question: ")
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for result in search(question, tld="co.in", num=1, stop=1, pause=0.01): 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(result, new=2)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for result in search(question+"quizlet", tld="co.in", num=1, stop=1, pause=0.01):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(result, new=2)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for result in search(question+"sanfoundry", tld="co.in", num=1, stop=1, pause=0.01):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;webbrowser.open(result, new=2)
+</pre>
+<p>With that the student should not need to worry about their timed study session.</p>
+</body>
+</html>
