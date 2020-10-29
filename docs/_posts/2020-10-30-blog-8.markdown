@@ -104,6 +104,9 @@ categories: Senior-Design
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backrefs: yes
 </pre>
 <p>With this our ansible playbook should be able to replace the line <code>Require all denied</code> with our own specified line <code>Require all granted</code>.</p>
+<br>
+
+<h1><b>Caution</b></h1>
 <pre>*** It is very important to keep the syntax of a yaml file in mind, as the syntax is very picky about the required spacing and layout of the commands. ***</pre>
 </body>
 </html>
