@@ -1,0 +1,109 @@
+---
+layout: post
+title:  "2020/10/30 Blog 8"
+date:   2020-10-28 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Introduction</b></h1>
+<p>This blog will document the steps for replacing a line within a file using an Ansible Playbook in an Ubuntu Docker container.</p>
+<br>
+
+<h1><b>Prerequisites</b></h1>
+<p>Before creating our Ansible Playbook, we should first create a Docker container using an Ubuntu image and have ansible installed, as well as something to edit our playbook with.</p>
+<p>An example of this would look something like this:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;docker run –it -p 8080:80 ubuntu:18.04 /bin/bash
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apt update && apt install -y ansible
+</pre>
+<p>With our setup complete we can start creating our Ansible Playbook.</p>
+<p>Ansible Playbook Creation Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vi playbook.yml
+</pre>
+<br>
+
+<h1><b>Ansible Playbook</b></h1>
+<p>To begin, as our playbook is a <code>.yml</code> file, we will start off our playbook using 3 dashes, <code>---</code>, to signify the start of the document.</p>
+<p>Then we can define our host as <code>localhost</code> which should looks something like this:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- hosts: localhost
+</pre>
+<p>Now that we have our start and host defined, we can now start working on setting up our task which will replace a specified line within a file with a line of our own.</p>
+<p>To get started we are going to have to signify the start of our tasks by using the <code>tasks:</code> option below our defined host. Once we have done that we can begin naming our task.</p>
+<p>To name our task we can use the <code>- name:</code> option, which should look something like this:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- hosts: localhost
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tasks:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Replace Line Of File
+</pre>
+<p>With our task named, we can use the <code>lineinfile:</code> module to replace a specified line within a file using our playbook.</p>
+<p>Within the <code>lineinfile</code> module, we will be using the following parameters:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;regexp:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backrefs:
+</pre>
+<p>The <code>path:</code> parameter will allow us to set the location of the file, so that our playbook will be able to access it.</p>
+<p>We can then use the <code>regexp:</code> parameter that will allow us to look for the specified regular expression within every line of our specified file.</p>
+<p>Then we can use the <code>line:</code> parameter to replace the specified regular expression with our own specified line.</p>
+<p>Lastly we can use the <code>backrefs:</code> paramters, which serves as a boolean which allows the change of the line based on whether or not hte regular expression has been found or not within the file.</p>
+<p>An example of the parameters in action would look something like this:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- hosts: localhost
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tasks:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- name: Replace Line Of File
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lineinfile:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path: /etc/apache2/apache2.conf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;regexp: '^(.*)Require all denied(.*)$'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line: 'Require all granted'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backrefs: yes
+</pre>
+<p>With this our ansible playbook should be able to replace the line <code>Require all denied</code> with our own specified line <code>Require all granted</code>.</p>
+<pre>*** It is very important to keep the syntax of a yaml file in mind, as the syntax is very picky about the required spacing and layout of the commands. ***</pre>
+</body>
+</html>
