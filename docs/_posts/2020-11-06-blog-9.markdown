@@ -66,7 +66,7 @@ categories: Senior-Design
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anywhere > Save Rules
 </pre>
 <p>Example Image:</p>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/awsaddrule.png" alt="AWS Security Group Rule" class="scalable"></center>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/awsaddrule.png" alt="AWS Security Group Rule"></center>
 <br>
 
 <h1><b>Mobaxterm</b></h1>
@@ -77,8 +77,8 @@ categories: Senior-Design
 <p>After we put in our remote host, we want to select Specify username, and type in the username provided by our EC2 instance, mine was ubuntu.</p>
 <p>Finally once we have that set up, we can navigate to the Advanced SSH settings and select Use private key and choose our .pem file that we should have downloaded for our instance.</p>
 <p>This is an example of what your Session Settings should look like:</p>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/sessionsetting.png" alt="Mobaxterm Session Settings" class="scalable"></center>
-<p>Once we press OK, we should have successfully connected to our EC2 instance.</p>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/sessionsetting.png" alt="Mobaxterm Session Settings"></center>
 <br>
+<p>Once we press OK, we should have successfully connected to our EC2 instance.</p>
 </body>
 </html>
