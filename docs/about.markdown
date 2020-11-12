@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: Blogs
 permalink: /about/
 ---
 <!DOCTYPE html>
@@ -21,7 +21,9 @@ permalink: /about/
 {"@type":"WebSite","url":"http://localhost:4000/","name":"CIT 480/L Senior Design","description":"California State University, Northridge CIT 480/L SENIOR DESIGN Fall 2020 Samuel Kim","headline":"CIT 480/L Senior Design","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="CIT 480/L Senior Design" /></head>
-<body><header class="site-header" role="banner">
+<body>
+<!--
+<header class="site-header" role="banner">
 
 <div class="wrapper"><a class="site-title" rel="author" href="/">CIT 480/L Senior Design</a><nav class="site-nav">
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -35,7 +37,7 @@ permalink: /about/
 
 <div class="trigger"><a class="page-link" href="/about/">About</a></div>
 </nav></div>
-</header>
+</header> -->
 <main class="page-content" aria-label="Content">
 <div class="wrapper">
 <div class="home"><html>
@@ -56,16 +58,7 @@ permalink: /about/
                 background-color:#ffe9ec;
         }
 </style>
-<head>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
-<script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
-<script src="terminalUI.js"></script>
-</head>
 <body>
-<div id="terminal"></div>
 </body>
 </html>
 <h2 class="post-list-heading">Posts</h2>
@@ -129,7 +122,9 @@ Welcome to Jekyll!
 <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
 
 </div>
-</main><footer class="site-footer h-card">
+</main>
+
+<!--<footer class="site-footer h-card">
 <data class="u-url" href="/"></data>
 
 <div class="wrapper">
@@ -152,7 +147,7 @@ Welcome to Jekyll!
 
 </div>
 
-</footer>
+</footer> -->
 </body>
 
 </html>
