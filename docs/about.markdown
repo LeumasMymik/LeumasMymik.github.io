@@ -1,7 +1,7 @@
 ---
 layout: home
-title: About
-permalink: /about/
+title: Blogs
+permalink: /blogs/
 ---
 <html>
 <style>
@@ -30,6 +30,5 @@ permalink: /about/
         }
 </style>
 <body>
-<p>My name is Samuel Kim, and I am currently a senior at California State University, Northridge. I am working towards getting a bachelors in Computer Information Technology. This GitHub Blog will serve as a way for me to practice documentation through the form of a blog as I learn new things throughout the course of my Senior Design class.</p>
 </body>
 </html>
