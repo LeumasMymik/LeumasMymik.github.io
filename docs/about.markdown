@@ -1,6 +1,7 @@
 ---
 layout: page
-permalink: /blogs/
+title: Blogs
+permalink: /blog/
 ---
 <html lang="en"><head>
 <meta charset="utf-8">
