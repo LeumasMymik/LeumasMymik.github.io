@@ -36,7 +36,6 @@ $('body').terminal({
     }
 }, {
     greetings: 'Connected to LeumasMymik.Github.io',
-    height: 400,
     prompt: 'guest@leumasmymik.github.io:~$ '
 });
 </script>
