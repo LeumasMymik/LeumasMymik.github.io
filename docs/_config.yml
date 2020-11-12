@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   California State University, Northridge
   CIT 480/L SENIOR DESIGN Fall 2020
   Samuel Kim
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/blogs" # the subpath of your site, e.g. /blog
 url: "https://LeumasMymik.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 linkedin_username: leumasmymik
 instagram_username: sam._.kim
