@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "2020/11/06 Blog 9"
+date:   2020-11-05 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Introduction</b></h1>
+<p>This blog will document the steps for accessing an EC2 instance using Mobaxterm.</p>
+<br>
+
+<h1><b>Prerequisites</b></h1>
+<p>Before we can ssh into an EC2 instance we need to have one made. I will not be going over how to create an EC2 instance, but you can follow this <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">guide here</a>.</p>
+<p>Once you have your EC2 instance created, we can start the remaining setup required to ssh into our instance using Mobaxterm on Windows.</p>
+<br>
+
+<h1><b>Adding Security Group Rule</b></h1>
+<p>Before we begin attempting to ssh into our EC2 instance, it is very helpful to double check the rules that are attached to our instance, as having or not having rules that allow certain types of connections can hinder out ability to ssh successfully into our instance.</p>
+<p>We want to go ahead and select <code>Add Rule</code> within our chosen security group. Once we have done that, we want to make sure that our <code>Type</code> is set as <code>SSH</code>, our <code>Port range</code> is set as 22, and that our <code>Source type</code> is set as <code>Anywhere</code>.</p>
+<p>General Steps:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Services > EC2 > Security Groups > Select the default
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;security group > Inbound Rules > Edit inbound rules > Add
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rule > Select SSH for Type > Port Range 22 > Source Type:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Anywhere > Save Rules
+</pre>
+<p>Example Image:</p>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/awsaddrule.png" alt="AWS Security Group Rule"></center>
+<br>
+
+<h1><b>Mobaxterm</b></h1>
+<p>Now that we have our security group updated for our ssh purposes, we can now setup our new session within Mobaxterm.</p>
+<p>When trying to ssh into something on Mobaxterm, you don’t need to type in the ssh line of code, instead, we go to <code>Sessions</code> and choose new session then select the SSH option.</p>
+<p>Once we select ssh, we want to go ahead and look for our remote host. The remote host for our EC2 instance should look something like this:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ec2-UNIQUE SET OF NUMBERS.compute-1.amazonaws.com</pre>
+<p>After we put in our remote host, we want to select Specify username, and type in the username provided by our EC2 instance, mine was ubuntu.</p>
+<p>Finally once we have that set up, we can navigate to the Advanced SSH settings and select Use private key and choose our .pem file that we should have downloaded for our instance.</p>
+<p>This is an example of what your Session Settings should look like:</p>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/sessionsetting.png" alt="Mobaxterm Session Settings"></center>
+<br>
+<p>Once we press OK, we should have successfully connected to our EC2 instance.</p>
+</body>
+</html>
