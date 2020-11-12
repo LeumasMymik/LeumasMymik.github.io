@@ -42,6 +42,10 @@ $('#terminal').terminal({
 </script>
 </head>
 <body>
+<ul>
+<li>
 <div id="terminal"></div>
+</li>
+</ul>
 </body>
 </html>
