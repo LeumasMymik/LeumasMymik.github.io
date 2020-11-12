@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Blogs
 permalink: /blogs/
 ---
 <html lang="en"><head>
