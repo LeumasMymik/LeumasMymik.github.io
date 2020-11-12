@@ -28,7 +28,18 @@ layout: page
 <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
 <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
-<script src="terminalUI.js"></script>
+<script>
+$('#terminal').terminal({
+    help: function() {
+        this.echo('List of Commands:');
+        this.echo('        help         ' + 'help');
+    }
+}, {
+    greetings: 'Connected to LeumasMymik.Github.io',
+    height: 400,
+    prompt: 'guest@leumasmymik.github.io:~$ '
+});
+</script>
 </head>
 <body>
 <div id="terminal"></div>
