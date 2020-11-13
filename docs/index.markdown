@@ -33,7 +33,7 @@ layout: page
 <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
 <script>
-$('ul').terminal({
+$('body').terminal({
     "-help": function() {
         this.echo('List of Commands:');
         this.echo('        help         ' + 'help');
