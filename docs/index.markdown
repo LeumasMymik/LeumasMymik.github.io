@@ -21,6 +21,10 @@ layout: page
 	.site-footer {
 		background-color:#ffe9ec;
 	}
+
+	:root {
+    		--size: 1.5;
+	}
 </style>
 <head>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
