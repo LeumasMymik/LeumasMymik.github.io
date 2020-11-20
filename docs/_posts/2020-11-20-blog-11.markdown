@@ -56,19 +56,21 @@ categories: Senior-Design
 <br>
 
 <h1><b>XAMPP Control Panel</b></h1>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/xampp.png" alt="XAMPP Control Panel">
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/xampp.png" alt="XAMPP Control Panel"></center>
+<br>
 <p>To start up a LAMP Stack using apache with XAMPP, we simply click on the start button under Actions for apache. Once your XAMPP Control Panel lets you know that apache is running you can navigate to either localhost or 120.0.0.1 to check whether or not our LAMP Stack has been setup.</p>
 <p>Example message of running apache:</p>
 <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Attempting to start Apache app...
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Status change detected: running
 </pre>
 <p>Image of localhost:</p>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/localhost.png" alt="XAMPP Splash Page with localhost">
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/localhost.png" alt="XAMPP Splash Page with localhost"></center>
+<br>
 <br>
 <p>Image of 120.0.0.1:</p>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/120.0.0.1.png" alt="XAMPP Splash Page with 120.0.0.1">
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/120.0.0.1.png" alt="XAMPP Splash Page with 120.0.0.1"></center>
 <br>
-
+<br>
 <p>Not only can you start up an apache LAMP Stack with the click of a button, you can implement a MySQL database that you can customize using the admin feature, and a whole lot more.</p>
 </body>
 </html>
