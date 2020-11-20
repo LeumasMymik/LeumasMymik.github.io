@@ -56,21 +56,19 @@ categories: Senior-Design
 <br>
 
 <h1><b>XAMPP Control Panel</b></h1>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/xampp.png" alt="XAMPP Control Panel">
 <p>To start up a LAMP Stack using apache with XAMPP, we simply click on the start button under Actions for apache. Once your XAMPP Control Panel lets you know that apache is running you can navigate to either localhost or 120.0.0.1 to check whether or not our LAMP Stack has been setup.</p>
 <p>Example message of running apache:</p>
 <pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Attempting to start Apache app...
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Status change detected: running
 </pre>
 <p>Image of localhost:</p>
-<img src="" alt="XAMPP Splash Page with localhost">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/localhost.png" alt="XAMPP Splash Page with localhost">
 <br>
 <p>Image of 120.0.0.1:</p>
-<img src="" alt="XAMPP Splash Page with 120.0.0.1">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/120.0.0.1.png" alt="XAMPP Splash Page with 120.0.0.1">
 <br>
 
-<h1><b>Options</b></h1>
-<p>To attach your IAM Role to an existing EC2 instance, within your EC2 Dashboard, select your instance that you would like to add your role to.</p>
-<p>Then within the <code>Actions</code> drop down menu select <code>Instance Settings > Attach/Replace IAM role</code>.</p>
-<p>Once you have done that you should now be on the Attach/Replace IAM role page, and you should see the drop down option to select the IAM role that you would like to attach. Once you have chosen the IAM role, click <code>Apply</code>, and you should be good to go from there.</p>
+<p>Not only can you start up an apache LAMP Stack with the click of a button, you can implement a MySQL database that you can customize using the admin feature, and a whole lot more.</p>
 </body>
 </html>
