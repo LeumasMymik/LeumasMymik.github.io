@@ -46,7 +46,8 @@ categories: Senior-Design
 </style>
 
 <body>
-<h1><b>Introduction</b></h1>
+<h1><b>Introduction to XAMPP</b></h1>
+<p>XAMPP is an open source software package that contains multiple apache distributions that can be run very quickly and easily. It has distributions for Apache, MariaDB, PHP, and Perl which can come in handy to test very quickly from a local server.</p>
 <p>This blog will document the steps for setting up a LAMP Stack using XAMPP on a windows machine.</p>
 <br>
 
