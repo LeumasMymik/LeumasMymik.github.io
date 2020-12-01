@@ -19,12 +19,12 @@ body {
 }
 
 table {
-	border:#cce9ff;
+	border: 1px solid #cce9ff;
 }
 
 td {
 	text-align: center;
 	width: 200px;
 	height: 200px;
-	border:#cce9ff;
+	border: 1px solid #cce9ff;
 }
