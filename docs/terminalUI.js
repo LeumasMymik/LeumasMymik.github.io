@@ -1,4 +1,4 @@
-$('table').terminal({
+$('body').terminal({
 	    "-help": function() {
 		            this.echo('List of Commands:');
 		            this.echo('        help         ' + 'help');
