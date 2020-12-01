@@ -5,27 +5,11 @@
 layout: page
 ---
 <html>
-<!-- <style>
-        html, body, h1, h2, h3, h4, h5, h6, p {
-		font-family:  "Courier";
-        }
-
-        body {
-                background-color:#cce9ff;
-        }
-
-	.site-header  {
-		background-color:#ffe9ec;
-	}
-
-	.site-footer {
-		background-color:#ffe9ec;
-	}
-</style> -->
 <head>
 <link rel="stylesheet" href="styles.css">
 <script src="terminalUI.js"></script>
 </head>
+<main>
 <div>
 <pre><center>
    _                                       __  __   _  _           _     _     
@@ -36,9 +20,10 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 "`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-' 
 </center></pre>
 </div>
+</main>
 <body>
 <p>test test test test</p>
-<table>
+<table height="400px">
 </table>
 </body>
 </html>
