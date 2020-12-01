@@ -9,6 +9,9 @@ layout: page
 <link rel="stylesheet" href="styles.css">
 <script src=""></script>
 </head>
+<header>
+<p>test check check</p>
+</header>
 <main>
 <div>
 <pre><center>
