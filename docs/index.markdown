@@ -7,7 +7,7 @@ layout: page
 <html>
 <head>
 <link rel="stylesheet" href="styles.css">
-<script src="terminalUI.js"></script>
+<script src=""></script>
 </head>
 <main>
 <div>
@@ -23,7 +23,5 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 </main>
 <body>
 <p>test test test test</p>
-<table height="400px">
-</table>
 </body>
 </html>

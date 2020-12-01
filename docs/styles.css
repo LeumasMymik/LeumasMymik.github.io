@@ -13,3 +13,7 @@ body {
 .site-footer {
 	background-color:#ffe9ec;
 }
+
+article.post-content {
+	width: 75%;
+}
