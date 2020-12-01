@@ -17,3 +17,9 @@ body {
 :root {
 	--size: 1.5;
 }
+
+td {
+	text-align: center;
+	width: 200px;
+	height: 200px
+}

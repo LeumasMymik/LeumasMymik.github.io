@@ -22,6 +22,15 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 </div>
 </header>
 <body>
-<p>test test test test</p>
+<table>
+<tr>
+<td>Terminal</td>
+<td>Blogs</td>
+</tr>
+<tr>
+<td>About</td>
+<td>GitHub</td>
+</tr>
+</table>
 </body>
 </html>
