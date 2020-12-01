@@ -32,7 +32,8 @@ layout: page
 <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
 <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
-<script>
+<script src="terminalUI.js"></script>
+<!-- <script>
 $('body').terminal({
     "-help": function() {
         this.echo('List of Commands:');
@@ -42,7 +43,7 @@ $('body').terminal({
 	greetings: '...Connected to LeumasMymik.Github.io\n\n     Type [-help] for more options.\n',
 	prompt: 'guest@leumasmymik.github.io:~$ '
 });
-</script>
+</script> -->
 </head>
 <div>
 <pre><center>
