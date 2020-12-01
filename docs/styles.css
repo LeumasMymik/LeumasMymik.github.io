@@ -25,5 +25,6 @@ table {
 td {
 	text-align: center;
 	width: 200px;
-	height: 200px
+	height: 200px;
+	border:#cce9ff;
 }
