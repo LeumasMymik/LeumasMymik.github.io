@@ -57,6 +57,7 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 </div>
 <body>
 <p>test test test test</p>
-<div id="terminal"></div>
+<table>
+</table>
 </body>
 </html>
