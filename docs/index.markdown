@@ -10,9 +10,6 @@ layout: page
 <script src=""></script>
 </head>
 <header>
-<p>test check check</p>
-</header>
-<main>
 <div>
 <pre><center>
    _                                       __  __   _  _           _     _     
@@ -23,7 +20,7 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 "`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-"`-0-0-' 
 </center></pre>
 </div>
-</main>
+</header>
 <body>
 <p>test test test test</p>
 </body>
