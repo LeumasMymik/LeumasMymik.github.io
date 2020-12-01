@@ -18,6 +18,10 @@ body {
 	--size: 1.5;
 }
 
+table {
+	border:#cce9ff;
+}
+
 td {
 	text-align: center;
 	width: 200px;
