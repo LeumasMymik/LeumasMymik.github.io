@@ -4,7 +4,6 @@ $('body').terminal({
 		            this.echo('        help         ' + 'help');
 		        }
 }, {
-	greetings: '...Connected to LeumasMymik.Github.io\n\n     Type [-help] for more options.\n',
-	height: 400,        
+	greetings: '...Connected to LeumasMymik.Github.io\n\n     Type [-help] for more options.\n',        
 	prompt: 'guest@leumasmymik.github.io:~$ '
 });
