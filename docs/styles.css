@@ -18,13 +18,13 @@ body {
 	--size: 1.5;
 }
 
-table {
+table, th, td {
 	border: 1px solid #cce9ff;
+	background-color: #cce9ff;
 }
 
 td {
 	text-align: center;
 	width: 200px;
 	height: 200px;
-	border: 1px solid #cce9ff;
 }
