@@ -25,6 +25,8 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 </div>
 </header>
 
+<br>
+
 <body>
 <!-- Dr. Seuss Quote because I am Sam, Sam I am. -->
 <center>
