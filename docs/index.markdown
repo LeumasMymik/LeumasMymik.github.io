@@ -31,13 +31,13 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 <tr>
 <td>
 <a href="https://leumasmymik.github.io/terminal">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/terminal-icon.png" alt="terminal icon">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/terminal-icon.png" alt="terminal icon" id="scaled">
 </a>
 </td>
 
 <td>
 <a href="https://leumasmymik.github.io/blogs">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon" id="scaled">
 </a>
 </td>
 </tr>
@@ -45,12 +45,14 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 <!-- Second row will hold the about page and a hyperlink to my github page -->
 <tr>
 <td>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt="about icon">
+<a href="https://leumasmymik.github.io/about">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt="about icon" id="scaled">
+</a>
 </td>
 
 <td>
 <a href="https://github.com/LeumasMymik">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt="github icon">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt="github icon" id="scaled">
 </a>
 </td>
 </tr>

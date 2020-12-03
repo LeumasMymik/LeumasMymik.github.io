@@ -19,12 +19,17 @@ body {
 }
 
 table, th, td {
-	border: 1px solid #ffe9ec;
-	background-color: #ffe9ec;
+	border: 1px solid #cce9ff;
+	background-color: #cce9ff;
 }
 
 td {
 	text-align: center;
+	width: 200px;
+	height: 300px;
+}
+
+.scaled {
 	width: 200px;
 	height: 300px;
 }
