@@ -26,6 +26,15 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 </header>
 
 <body>
+<!-- Dr. Seuss Quote because I am Sam, Sam I am. -->
+<center>
+<p>"I AM SAM. I AM SAM. SAM I AM.</p>
+<p>THAT SAM-I-AM! THAT SAM-I-AM! I DO NOT LIKE THAT SAM-I-AM!"</p>
+<p> - Dr. Seuss</p>
+</center>
+
+<br>
+
 <!-- Table to hold images that will also be links -->
 <table>
 <!-- First row will offer the main content which would be the blogs and the jquery terminal aspect -->

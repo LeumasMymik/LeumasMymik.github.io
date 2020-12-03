@@ -13,14 +13,6 @@ permalink: /about
 </head>
 
 <header>
-<center>
-<p>"I AM SAM. I AM SAM. SAM I AM.</p>
-<p>THAT SAM-I-AM! THAT SAM-I-AM! I DO NOT LIKE THAT SAM-I-AM!"</p>
-<p> - Dr. Seuss</p>
-
-<br>
-
-</center>
 <!-- Image of Jinro Frog -->
 <center>
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/Jinro_Logo.jpg" alt="jinro frog">
