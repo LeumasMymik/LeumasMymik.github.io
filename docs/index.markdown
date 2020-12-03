@@ -3,6 +3,7 @@
 
 layout: page
 ---
+<!-- I would like to tab and indent my html elements, but markdown takes spaces and tabs as syntax -->
 <html>
 <head>
 <!-- My CSS stylesheet -->
@@ -30,42 +31,30 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 <!-- First row will offer the main content which would be the blogs and the jquery terminal aspect -->
 <tr>
 <td>
-<!-- Added pre since it adds a lighter color than the harsher pink of the header and footer -->
-<pre>
 <a href="https://leumasmymik.github.io/terminal">
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/terminal-icon.png" alt="terminal icon" class="scaled">
 </a>
-</pre>
 </td>
 
 <td>
-<!-- Added pre since it adds a lighter color than the harsher pink of the header and footer -->
-<pre>
 <a href="https://leumasmymik.github.io/blogs">
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon" class="scale">
 </a>
-</pre>
 </td>
 </tr>
 
 <!-- Second row will hold the about page and a hyperlink to my github page -->
 <tr>
 <td>
-<!-- Added pre since it adds a lighter color than the harsher pink of the header and footer -->
-<pre>
 <a href="https://leumasmymik.github.io/about">
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt="about icon" class="scaled">
 </a>
-</pre>
 </td>
 
 <td>
-<!-- Added pre since it adds a lighter color than the harsher pink of the header and footer -->
-<pre>
 <a href="https://github.com/LeumasMymik">
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt="github icon" class="scaled">
 </a>
-</pre>
 </td>
 </tr>
 </table>
