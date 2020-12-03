@@ -50,9 +50,18 @@ categories: Senior-Design
 <p>This blog will document the steps for implementing a JQuery Terminal feature into your HTML site using javascript.</p>
 <br>
 
-<h1><b><a href="https://www.apachefriends.org/download.html">XAMPP</a></b></h1>
-<p>To get started we need to download the XAMPP package.You can find the download for your operating system <a href="https://www.apachefriends.org/download.html">here</a>.</p>
-<p>Once you have installed the XAMPP version for your operating system, we can start using XAMPP to start up a LAMP Stack.</p>
+<h1><b><a href="https://terminal.jcubic.pl/">JQuery Terminal</a></b></h1>
+<p>The JQuery Terminal is a plugin terminal emulator that can be used in an HTML file and constructed using javascript.</p>
+<p>To get started using the JQuery Terminal in an HTML site using javascript, you will need to include these scripts into the <code>&lt;script&gt;</code> tags of your HTML file.</p>
+<p>For Example:</p>
+<pre>
+&lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/&gt;
+</pre>
 <br>
 
 <h1><b>XAMPP Control Panel</b></h1>
