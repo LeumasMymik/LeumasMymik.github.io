@@ -28,7 +28,7 @@ $('body').terminal({
 		this.echo('----------------------------------------------------------------------------------------');
 		this.echo('     [-help]          ' + 'Provides the available commands.');
 		this.echo('     [ls]             ' + 'Lists all of the navigatable Blogs and Sites.');
-		this.echo('     [clear]             ' + 'Clears the terminal screen.');
+		this.echo('     [clear]          ' + 'Clears the terminal screen.');
 		this.echo('     [home]           ' + 'Opens up the home page.');
 		this.echo('     [about]          ' + 'Opens up the about page.');
 		this.echo('     [blog]           ' + 'Parameter [BLOG #]: Opens a specified page of this site.');
