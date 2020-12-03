@@ -14,6 +14,7 @@ var blog11 = "https://leumasmymik.github.io/senior-design/2020/11/19/blog-11.htm
 var blog12 = "https://leumasmymik.github.io/senior-design/2020/12/02/blog-12.html";
 var home = "https://leumasmymik.github.io/";
 var about = "https://leumasmymik.github.io/about";
+var terminal = "https://leumasmymik.github.io/terminal";
 var pepeSad = "https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/sadge.png";
 var pepeGlad = "https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/gladge.png";
 var blogArray = [blog0, blog1, blog2, blog3, blog4, blog5, blog6, blog7, blog8, blog9, blog10, blog11, blog12];
