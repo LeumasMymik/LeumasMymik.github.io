@@ -13,8 +13,13 @@ permalink: /about
 </head>
 
 <header>
+<!-- Image of Jinro Frog -->
+<center>
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/Jinro_Logo.jpg" alt="jinro frog">
+</center>
 </header>
+
+<br>
 
 <body>
 <p>My name is Samuel Kim, and I am currently a senior at California State University, Northridge. I am working towards getting a bachelors in Computer Information Technology. After my ascendancy to the legal drinking age here in Caliornia, I became the embodiment of the Jinro Frog, Jinro being one of the largest, if not the largest, manufacturer of soju.</p>
