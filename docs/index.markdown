@@ -37,7 +37,7 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 
 <td>
 <a href="https://leumasmymik.github.io/blogs">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt"blog icon">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon">
 </a>
 </td>
 </tr>
@@ -45,12 +45,12 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 <!-- Second row will hold the about page and a hyperlink to my github page -->
 <tr>
 <td>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt"about icon">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt="about icon">
 </td>
 
 <td>
 <a href="https://github.com/LeumasMymik">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt"github icon">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt="github icon">
 </a>
 </td>
 </tr>
