@@ -55,31 +55,28 @@ categories: Senior-Design
 <p>To get started using the JQuery Terminal in an HTML site using javascript, you will need to include these scripts into the <code>&lt;script&gt;</code> tags of your HTML file.</p>
 <p>For Example:</p>
 <pre>
-&lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
-&lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;
-&lt;script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"&gt;&lt;/script&gt;
-&lt;script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;
-&lt;link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/&gt;
 </pre>
+<p>Now that we have included the required scripts we can implement the terminal by editing our javascript file with the following code:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('body').terminal({
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.echo('World!');
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;greetings: 'Connected to LeumasMymik.Github.io',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prompt: 'guest@leumasmymik.github.io:~$ '
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+</pre>
+<p>The first line will attach the JQuery terminal to the body element within our HTML file. Then when a user types in hello, the terminal will output "World!". The greetings value will be the very first message that loads into the terminal when the site opens up, and the prompt value will act as the sort of user for the terminal, which can be changed to be anything you like.</p>
 <br>
 
-<h1><b>XAMPP Control Panel</b></h1>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/xampp.png" alt="XAMPP Control Panel"></center>
-<br>
-<p>To start up a LAMP Stack using apache with XAMPP, we simply click on the start button under Actions for apache. Once your XAMPP Control Panel lets you know that apache is running you can navigate to either localhost or 120.0.0.1 to check whether or not our LAMP Stack has been setup.</p>
-<p>Example message of running apache:</p>
-<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Attempting to start Apache app...
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Status change detected: running
-</pre>
-<p>Image of localhost:</p>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/localhost.png" alt="XAMPP Splash Page with localhost"></center>
-<br>
-<br>
-<p>Image of 120.0.0.1:</p>
-<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/120.0.0.1.png" alt="XAMPP Splash Page with 120.0.0.1"></center>
-<br>
-<br>
-<p>Not only can you start up an apache LAMP Stack with the click of a button, you can implement a MySQL database that you can customize using the admin feature, and a whole lot more.</p>
+<h1><b><a href="https://leumasmymik.github.io/terminal">Example Site</a></b></h1>
+<p>To view a more developed example of the features and options that the JQuery Terminal offers feel free to check out this <a href="https://leumasmymik.github.io/terminal">example site</a> that I created.</p>
 </body>
 </html>
