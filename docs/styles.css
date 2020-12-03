@@ -19,8 +19,12 @@ body {
 }
 
 table, th, td {
-	border: 1px solid transparent;
+	border: 1px solid #cce9ff;
 	background-color: #cce9ff;
+}
+
+table, td{
+	border: 1px solid transparent;
 }
 
 td {
