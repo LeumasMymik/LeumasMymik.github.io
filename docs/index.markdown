@@ -31,13 +31,13 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 <tr>
 <td>
 <a href="https://leumasmymik.github.io/terminal">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/terminal-icon.png" alt="terminal icon" id="scaled">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/terminal-icon.png" alt="terminal icon" class="scaled">
 </a>
 </td>
 
 <td>
 <a href="https://leumasmymik.github.io/blogs">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon" id="scaled">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon" class="scaled">
 </a>
 </td>
 </tr>
@@ -46,13 +46,13 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 <tr>
 <td>
 <a href="https://leumasmymik.github.io/about">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt="about icon" id="scaled">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/about.png" alt="about icon" class="scaled">
 </a>
 </td>
 
 <td>
 <a href="https://github.com/LeumasMymik">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt="github icon" id="scaled">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/github.png" alt="github icon" class="scaled">
 </a>
 </td>
 </tr>
