@@ -2,7 +2,7 @@
 # This section is necessary within the markdown page for jekyll
 
 layout: page
-title: terminal
+title: >_ [terminal]
 permalink: /terminal
 ---
 
