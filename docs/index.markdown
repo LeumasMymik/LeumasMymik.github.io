@@ -37,7 +37,7 @@ _|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_|"""""_| """"_|"""""_|"""""_|"""""|
 
 <td>
 <a href="https://leumasmymik.github.io/blogs">
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon" class="scaled">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/blog.png" alt="blog icon" class="scale">
 </a>
 </td>
 </tr>
