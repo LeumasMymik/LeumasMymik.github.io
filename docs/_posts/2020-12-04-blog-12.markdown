@@ -1,0 +1,76 @@
+---
+layout: post
+title:  "2020/12/04 Blog 12"
+date:   2020-12-02 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Adding a JQuery Terminal to HTML Site</b></h1>
+<p>This blog will document the steps for implementing a JQuery Terminal feature into your HTML site using javascript.</p>
+<br>
+
+<h1><b><a href="https://www.apachefriends.org/download.html">XAMPP</a></b></h1>
+<p>To get started we need to download the XAMPP package.You can find the download for your operating system <a href="https://www.apachefriends.org/download.html">here</a>.</p>
+<p>Once you have installed the XAMPP version for your operating system, we can start using XAMPP to start up a LAMP Stack.</p>
+<br>
+
+<h1><b>XAMPP Control Panel</b></h1>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/xampp.png" alt="XAMPP Control Panel"></center>
+<br>
+<p>To start up a LAMP Stack using apache with XAMPP, we simply click on the start button under Actions for apache. Once your XAMPP Control Panel lets you know that apache is running you can navigate to either localhost or 120.0.0.1 to check whether or not our LAMP Stack has been setup.</p>
+<p>Example message of running apache:</p>
+<pre>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Attempting to start Apache app...
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:15:07 PM  [Apache] 	Status change detected: running
+</pre>
+<p>Image of localhost:</p>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/localhost.png" alt="XAMPP Splash Page with localhost"></center>
+<br>
+<br>
+<p>Image of 120.0.0.1:</p>
+<center><img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/120.0.0.1.png" alt="XAMPP Splash Page with 120.0.0.1"></center>
+<br>
+<br>
+<p>Not only can you start up an apache LAMP Stack with the click of a button, you can implement a MySQL database that you can customize using the admin feature, and a whole lot more.</p>
+</body>
+</html>
