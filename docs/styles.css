@@ -19,7 +19,7 @@ body {
 }
 
 table, th, td {
-	border: 1px solid #cce9ff;
+	border: 1px transparent;
 	background-color: #cce9ff;
 }
 
