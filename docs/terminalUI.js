@@ -31,7 +31,7 @@ $('body').terminal({
 		this.echo('     [clear]          ' + 'Clears the terminal screen.');
 		this.echo('     [home]           ' + 'Opens up the home page.');
 		this.echo('     [about]          ' + 'Opens up the about page.');
-		this.echo('     [blog]           ' + 'Parameter [BLOG #]: Opens a specified page of this site.');
+		this.echo('     [blog]           ' + 'Parameter [BLOG #]: Opens a specified blog post.');
 		this.echo('     [sadge]          ' + 'Parameters [width] && [height]: Sadge.');
 		this.echo('     [gladge]         ' + 'Parameters [width] && [height]: Gladge.');
 		this.echo('----------------------------------------------------------------------------------------');
