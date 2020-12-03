@@ -1,4 +1,6 @@
 ---
+# This section is necessary within the markdown page for jekyll
+
 layout: page
 permalink: /terminal
 ---
