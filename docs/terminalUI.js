@@ -34,6 +34,7 @@ $('body').terminal({
 		this.echo('     [blog]           ' + 'Parameter [BLOG #]: Opens a specified blog post.');
 		this.echo('     [sadge]          ' + 'Parameters [width] && [height]: Sadge.');
 		this.echo('     [gladge]         ' + 'Parameters [width] && [height]: Gladge.');
+		this.echo('     [greet]          ' + 'Greets user based on the current time.');
 		this.echo('----------------------------------------------------------------------------------------');
 		this.echo('');
 		this.echo('### If you do not input parameters for the sadge and gladge command a default sizing has been provided! ###');
@@ -140,6 +141,25 @@ $('body').terminal({
 	"gladge": function(width, height) {
 		const glad = $('<img src="' + pepeGlad + '" alt="gladge" width="' + width + '" height="' + height + '">');
 		this.echo(glad);
+	},
+
+	// javascript function that uses an if, else if, and else statements to greet a user based on specific times
+	"greet": function() {
+		if (new Date().getHours() >= 6 && new Date().getHours() < 12) {
+			this.echo('     Good Morning!');
+		}
+		else if(new Date().getHours() >= 12 && new Date().getHours() < 17){
+			this.echo('     Good Afternoon!');
+		}
+		else if(new Date().getHours() >= 17 && new Date().getHours() < 22){
+			this.echo('     Good Evening!');
+		}
+		else if(new Date().getHours() >= 22 && new Date().getHours() < 6){
+			this.echo('     Good Night!');
+		}
+		else{
+			this.echo('     Hello World!');
+		}
 	}
 }, {
 	// will not provide the JQuerry error message for missing params
