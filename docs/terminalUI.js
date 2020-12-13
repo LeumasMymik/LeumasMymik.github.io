@@ -105,19 +105,9 @@ $('body').terminal({
 		this.echo('     Terminal Page:      ' + terminal);
 		this.echo('');
 		this.echo('     Blogs:');
-		this.echo('          Blog 0:        ' + blog0);
-		this.echo('          Blog 1:        ' + blog1);
-		this.echo('          Blog 2:        ' + blog2);
-		this.echo('          Blog 3:        ' + blog3);
-		this.echo('          Blog 4:        ' + blog4);
-		this.echo('          Blog 5:        ' + blog5);
-		this.echo('          Blog 6:        ' + blog6);
-		this.echo('          Blog 7:        ' + blog7);
-		this.echo('          Blog 8:        ' + blog8);
-		this.echo('          Blog 9:        ' + blog9);
-		this.echo('          Blog 10:       ' + blog10);
-		this.echo('          Blog 11:       ' + blog11);
-		this.echo('          Blog 12:       ' + blog12);
+		for (var i = 0; i < blogArray.length; i++){
+			this.echo('          Blog ' + i + ':        ' + blogArray[i]);
+		}
 		this.echo('');
 	},
 
