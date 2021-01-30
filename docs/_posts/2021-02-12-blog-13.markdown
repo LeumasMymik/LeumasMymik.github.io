@@ -1,0 +1,82 @@
+---
+layout: post
+title:  "2020/02/12 Blog 13"
+date:   2020-01-30 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Adding a JQuery Terminal to HTML Site</b></h1>
+<p>This blog will document the steps for implementing a JQuery Terminal feature into your HTML site using javascript.</p>
+<br>
+
+<h1><b><a href="https://terminal.jcubic.pl/">JQuery Terminal</a></b></h1>
+<p>The JQuery Terminal is a plugin terminal emulator that can be used in an HTML file and constructed using javascript.</p>
+<p>To get started using the JQuery Terminal in an HTML site using javascript, you will need to include these scripts into the <code>&lt;script&gt;</code> tags of your HTML file.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/&gt;
+</pre>
+<p>Now that we have included the required scripts we can implement the terminal by editing our javascript file with the following code:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('body').terminal({
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.echo('World!');
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;greetings: 'Connected to LeumasMymik.Github.io',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prompt: 'guest@leumasmymik.github.io:~$ '
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+</pre>
+<p>The first line will attach the JQuery terminal to the body element within our HTML file. Then when a user types in hello, the terminal will output "World!". The greetings value will be the very first message that loads into the terminal when the site opens up, and the prompt value will act as the sort of user for the terminal, which can be changed to be anything you like.</p>
+<br>
+
+<h1><b><a href="https://leumasmymik.github.io/terminal">Example Site</a></b></h1>
+<p>To view a more developed example of the features and options that the JQuery Terminal offers feel free to check out this <a href="https://leumasmymik.github.io/terminal">example site</a> that I created.</p>
+</body>
+</html>
