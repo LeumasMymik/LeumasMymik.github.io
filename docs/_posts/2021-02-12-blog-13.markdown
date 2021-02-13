@@ -57,11 +57,28 @@ categories: Senior-Design
 
 <h1><b>Metaploitable Used Harden</b></h1>
 <p>To harden Metasploitable from this specific attack you can disable anon&lowbar;upload within vsftpd.conf, but this will still allow an attacker to listen in on port 6200. To harden Metasploitable so that the attack no longer works we can configure iptables to drop listening on unused ports, but for the example, I just configured iptables for port 6200.</p>
-<p>Steps:</p>
+<p>Updating vsftpd.conf File Steps:</p>
 <pre>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get upgrade iptables
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo vi /etc/vsftpd.conf
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change anon&lowbar;upload&lowbar;enable=YES to anon&lowbar;upload&lowbar;enable=NO
 </pre>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/vsftpd.conf.png" alt="enable=NO">
+</center>
+<br>
+<p>Iptables Configuration:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo iptables -A INPUT -p tcp --dport 6200 -j DROP
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo iptables -A INPUT -p udp --dport 6200 -j DROP
+</pre>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/iptables.png" alt="Iptables Configuration">
+</center>
+<br>
+<p>Once you have completed these steps, when you try to attack the Metasploitable machine from Armitage, you should now get this message saying the backdoor session could not be created.</p>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/prevented.png" alt="No Session Was Created">
+</center>
 </body>
 </html>
