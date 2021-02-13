@@ -46,37 +46,22 @@ categories: Senior-Design
 </style>
 
 <body>
-<h1><b>Adding a JQuery Terminal to HTML Site</b></h1>
-<p>This blog will document the steps for implementing a JQuery Terminal feature into your HTML site using javascript.</p>
+<h1><b>Hardening a Metasploitable VM Instance to Prevent a <code>vsftpd&lowbar;234&lowbar;backdoor</code> Attack</b></h1>
+<p>This blog will document the steps for hardening a Metasploitable VM instance to prevent a <code>vsftpd&lowbar;234&lowbar;backdoor</code> attack from a Kali Linux machine running armitage.</p>
 <br>
 
-<h1><b><a href="https://terminal.jcubic.pl/">JQuery Terminal</a></b></h1>
-<p>The JQuery Terminal is a plugin terminal emulator that can be used in an HTML file and constructed using javascript.</p>
-<p>To get started using the JQuery Terminal in an HTML site using javascript, you will need to include these scripts into the <code>&lt;script&gt;</code> tags of your HTML file.</p>
-<p>For Example:</p>
-<pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://code.jquery.com/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="js/jquery.mousewheel-min.js"&gt;&lt;/script&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/js-polyfills/keyboard.js"&gt;&lt;/script&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"&gt;&lt;/script&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"&gt;&lt;/script&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css"/&gt;
-</pre>
-<p>Now that we have included the required scripts we can implement the terminal by editing our javascript file with the following code:</p>
-<pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$('body').terminal({
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hello: function() {
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.echo('World!');
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;greetings: 'Connected to LeumasMymik.Github.io',
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prompt: 'guest@leumasmymik.github.io:~$ '
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-</pre>
-<p>The first line will attach the JQuery terminal to the body element within our HTML file. Then when a user types in hello, the terminal will output "World!". The greetings value will be the very first message that loads into the terminal when the site opens up, and the prompt value will act as the sort of user for the terminal, which can be changed to be anything you like.</p>
+<h1><b>VSFTPD&lowbar;234&lowbar;BACKDOOR</b></h1>
+<p>The <code>vsftpd&lowbar;234&lowbar;backdoor</code> attack gives the attacker root access to the victim's Metasploitable machine.</p>
+<p>Keep in mind that this attack has been patched and to prevent this attack one could simply update the vsftpd version on the Metasploitable machine, but for the sake of this blog, I will provide steps to prevent this attack without updating it.</p>
 <br>
 
-<h1><b><a href="https://leumasmymik.github.io/terminal">Example Site</a></b></h1>
-<p>To view a more developed example of the features and options that the JQuery Terminal offers feel free to check out this <a href="https://leumasmymik.github.io/terminal">example site</a> that I created.</p>
+<h1><b>Metaploitable Used Harden</b></h1>
+<p>To harden Metasploitable from this specific attack you can disable anon&lowbar;upload within vsftpd.conf, but this will still allow an attacker to listen in on port 6200. To harden Metasploitable so that the attack no longer works we can configure iptables to drop listening on unused ports, but for the example, I just configured iptables for port 6200.</p>
+<p>Steps:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get upgrade iptables
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo vi /etc/vsftpd.conf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change anon&lowbar;upload&lowbar;enable=YES to anon&lowbar;upload&lowbar;enable=NO
+</pre>
 </body>
 </html>
