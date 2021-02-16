@@ -46,39 +46,38 @@ categories: Senior-Design
 </style>
 
 <body>
-<h1><b>Hardening a Metasploitable VM Instance to Prevent a <code>vsftpd&lowbar;234&lowbar;backdoor</code> Attack</b></h1>
-<p>This blog will document the steps for hardening a Metasploitable VM instance to prevent a <code>vsftpd&lowbar;234&lowbar;backdoor</code> attack from a Kali Linux machine running armitage.</p>
+<h1><b>How to Generate a Personal Access Token on GitHub</b></h1>
+<p>This blog will document the steps for generating a personal access token within GitHub as the method of entering your username and password will become depreciated and no longer used in August 2021.</p>
 <br>
 
-<h1><b>VSFTPD&lowbar;234&lowbar;BACKDOOR</b></h1>
-<p>The <code>vsftpd&lowbar;234&lowbar;backdoor</code> attack gives the attacker root access to the victim's Metasploitable machine.</p>
-<p>Keep in mind that this attack has been patched and to prevent this attack one could simply update the vsftpd version on the Metasploitable machine, but for the sake of this blog, I will provide steps to prevent this attack without updating it.</p>
+<h1><b>Steps:</b></h1>
+<p>The first thing that we need to do is log into github on the browser of your choosing and once you are logged in you should be able to click on your profile icon to see a drop down list of options.</p>
+<p>The option that we are interested in is the one titled <code>Settings</code>. It should look something like this:</p>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/settings.png" alt="Settings">
+</center>
 <br>
 
-<h1><b>Metaploitable Used Harden</b></h1>
-<p>To harden Metasploitable from this specific attack you can disable anon&lowbar;upload within vsftpd.conf, but this will still allow an attacker to listen in on port 6200. To harden Metasploitable so that the attack no longer works we can configure iptables to drop listening on unused ports, but for the example, I just configured iptables for port 6200.</p>
-<p>Updating vsftpd.conf File Steps:</p>
-<pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get upgrade iptables
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo vi /etc/vsftpd.conf
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change anon&lowbar;upload&lowbar;enable=YES to anon&lowbar;upload&lowbar;enable=NO
-</pre>
+<p>Once you have selected <code>Settings</code> on your left hand side you should see an option for <code>Developer Settings</code>, it should look something like this:</p>
 <center>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/vsftpd.conf.png" alt="enable=NO">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/developersettings.png" alt="Developer Settings">
 </center>
 <br>
-<p>Iptables Configuration:</p>
-<pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo iptables -A INPUT -p tcp --dport 6200 -j DROP
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo iptables -A INPUT -p udp --dport 6200 -j DROP
-</pre>
+
+<p>After you have selected <code>Developer Settings</code> you should see the option for <code>Personal Access Tokens</code>.</p>
 <center>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/iptables.png" alt="Iptables Configuration">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/personalaccesstokens.png" alt="Personal Access Tokens">
 </center>
 <br>
-<p>Once you have completed these steps, when you try to attack the Metasploitable machine from Armitage, you should now get this message saying the backdoor session could not be created.</p>
+
+<p>Then, after you have selected <code>Personal Access Tokens</code> you should see the option to <code>Generate New Token</code>.</p>
 <center>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/prevented.png" alt="No Session Was Created">
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/generatenewtoken.png" alt="Generate New Token">
 </center>
+<br>
+
+<p>Once you select <code>Generate New Token</code> you should be prompted to enter a descriptive name for your token, along with the available scopes that you can assign to the token. The scopes can be assigned based on your needs or the needs of the user that will be assigned this token.</p>
+<p>Once you have finished selecting the scope for your token you can select <code>Generate Token</code> to receive a copy of your token.</p>
+<p>Keep in mind that GitHub warns you to keep your tokens safe as if you would a password.</p>
 </body>
 </html>
