@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "2020/02/12 Blog 13"
+date:   2021-01-30 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Hardening a Metasploitable VM Instance to Prevent a <code>vsftpd&lowbar;234&lowbar;backdoor</code> Attack</b></h1>
+<p>This blog will document the steps for hardening a Metasploitable VM instance to prevent a <code>vsftpd&lowbar;234&lowbar;backdoor</code> attack from a Kali Linux machine running armitage.</p>
+<br>
+
+<h1><b>VSFTPD&lowbar;234&lowbar;BACKDOOR</b></h1>
+<p>The <code>vsftpd&lowbar;234&lowbar;backdoor</code> attack gives the attacker root access to the victim's Metasploitable machine.</p>
+<p>Keep in mind that this attack has been patched and to prevent this attack one could simply update the vsftpd version on the Metasploitable machine, but for the sake of this blog, I will provide steps to prevent this attack without updating it.</p>
+<br>
+
+<h1><b>Metaploitable Used Harden</b></h1>
+<p>To harden Metasploitable from this specific attack you can disable anon&lowbar;upload within vsftpd.conf, but this will still allow an attacker to listen in on port 6200. To harden Metasploitable so that the attack no longer works we can configure iptables to drop listening on unused ports, but for the example, I just configured iptables for port 6200.</p>
+<p>Updating vsftpd.conf File Steps:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo apt-get upgrade iptables
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo vi /etc/vsftpd.conf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Change anon&lowbar;upload&lowbar;enable=YES to anon&lowbar;upload&lowbar;enable=NO
+</pre>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/vsftpd.conf.png" alt="enable=NO">
+</center>
+<br>
+<p>Iptables Configuration:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo iptables -A INPUT -p tcp --dport 6200 -j DROP
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sudo iptables -A INPUT -p udp --dport 6200 -j DROP
+</pre>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/iptables.png" alt="Iptables Configuration">
+</center>
+<br>
+<p>Once you have completed these steps, when you try to attack the Metasploitable machine from Armitage, you should now get this message saying the backdoor session could not be created.</p>
+<center>
+<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/prevented.png" alt="No Session Was Created">
+</center>
+</body>
+</html>

@@ -12,12 +12,24 @@ var blog9 = "https://leumasmymik.github.io/senior-design/2020/11/05/blog-9.html"
 var blog10 = "https://leumasmymik.github.io/senior-design/2020/11/12/blog-10.html";
 var blog11 = "https://leumasmymik.github.io/senior-design/2020/11/19/blog-11.html";
 var blog12 = "https://leumasmymik.github.io/senior-design/2020/12/02/blog-12.html";
+var blog13 = "https://leumasmymik.github.io/senior-design/2021/01/30/blog-13.html";
+var blog14 = "";
+var blog15 = "";
+var blog16 = "";
+var blog17 = "";
+var blog18 = "";
+var blog19 = "";
+var blog20 = "";
+var blog21 = "";
+var blog22 = "";
+var blog23 = "";
+var blog24 = "";
 var home = "https://leumasmymik.github.io/";
 var about = "https://leumasmymik.github.io/about";
 var terminal = "https://leumasmymik.github.io/terminal";
 var pepeSad = "https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/sadge.png";
 var pepeGlad = "https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/gladge.png";
-var blogArray = [blog0, blog1, blog2, blog3, blog4, blog5, blog6, blog7, blog8, blog9, blog10, blog11, blog12];
+var blogArray = [blog0, blog1, blog2, blog3, blog4, blog5, blog6, blog7, blog8, blog9, blog10, blog11, blog12, blog13, blog14, blog15, blog16, blog17, blog18, blog19, blog20, blog21, blog22, blog23, blog24];
 
 // Relates the JQuery terminal to the html body element
 $('body').terminal({
