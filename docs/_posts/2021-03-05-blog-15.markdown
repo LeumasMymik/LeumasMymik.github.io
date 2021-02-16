@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "2021/03/05 Blog 15"
+date:   2021-02-28 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Attacking a Metasploitable VM Using Armitage on Kali Linux</b></h1>
+<p>This blog will document the steps for attacking a metaploitable vm instance using armitage on a kali linux machine to gain root access of the metaploitable instance.</p>
+<br>
+
+<h1><b>Steps:</b></h1>
+<p>Before we get started the first thing that we want to go ahead and do is to start up armitage either through the terminal or by interacting with the GUI application.</p>
+<p>For this example I will be providing instructions for starting Armitage through the kali linux terminal.</p>
+<p>To get started, before we start armitage, we first need to start our postgresql database and initialize the metasploit framework database. To do this you can run the following commands:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;systemctl start postgresql
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msfdb init
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;armitage
+</pre>
+
+<p>Once armitage starts up go ahead and connect using the default settings, the default settings should look something like this:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Host: 127.0.0.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Port: 55553
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User: msf
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pass: &#42;&#42;&#42;&#42;
+</pre>
+
+<p>Once you choose to connect go ahead and select <code>Yes</code> to start msfrpcd, and then you should be able to see the armitage GUI.</p>
+<p>After getting Armitage setup, to find the Metasploitable VM, I chose the Hosts tab > Nmap Scan > Intense Scan, All TCP Ports.</p>
+<p>Then I entered the inet address of my Metasploitable VM, but you should generally enter the IP range of the target network.</p>
+<p>Then once it finished scanning, I chose the Attacks tab > Find Attacks.</p>
+<p>Then I right clicked on the Metasploitable instance that showed up on the Armitage GUI and chose random attacks that would give me root access, such as the vsftpd&lowbar;234&lowbar;backdoor attack, until one of them worked.</p>
+<p>Once the attack showed to be successful, the option for Shell 1 came up and I used that to gain access the root console of the Metasploitable instance.</p>
+</body>
+</html>
