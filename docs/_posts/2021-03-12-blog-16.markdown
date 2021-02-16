@@ -1,0 +1,72 @@
+---
+layout: post
+title:  "2021/03/12 Blog 15"
+date:   2021-03-07 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Upgrading a (C:) Drive</b></h1>
+<p>This blog will document the steps for upgrading a C: drive on a pc. I had a 250 GB ssd as my C: drive up until now, and I have always wanted to upgrade it to 1 TB, so I would not need to worry at all about space on my main drive.</p>
+<br>
+
+<h1><b>Hardware Used</b></h1>
+<p>For my specific case, I used the SK hynix Gold S31 1TB 3D NAND 2.5 inch SATA III Internal SSD. There will be a link below to the specific SSD.</p>
+<a href="https://pcpartpicker.com/product/2PXYcf/sk-hynix-gold-s31-1-tb-25-solid-state-drive-shgs31-1000gs-2">SK hynix Gold S31 1TB 3D NAND 2.5 inch SATA III Internal SSD</a>
+
+<h1><b>Mounting</b></h1>
+<p>With that out of the way, make sure to take the time to find a suitable mounting position on your machine, so that you cables can be properly routed and managed.</p>
+<p>Although this is not a necessary step, it will help you machine look and feel more organized rather than being a mess and jumble of wires.</p>
+
+<h1><b>Installation</b></h1>
+<p>Once you have chosen a suitable mounting place for your SSD, go ahead and attach the SSD to the power and SATA cables required for the connection.</p>
+<p>Once you have everything plugged in go ahead and turn on your computer and with the SK hynix Gold S31 1TB 3D NAND 2.5 inch SATA III Internal SSD, they offer a rather useful tool that works best on Windows for cloning your current C: drive data onto your new drive. <a href="https://updates.macrium.com/sk-hynix/sk%20hynix%20smu%20user%20guide%20v2.pdf">Instructions provided by manufacturer</a>.</p>
+<p>Once you have successfully cloned the drive, go ahead and shut down your machine, and swap the positions of the hard drives, making sure to attach the new SSD in the same SATA port as the previous C: drive.</p>
+<p>Then once you ahve successfully swapped the drives, go ahead and restart your machine, and you should now be booted up in your new C: drive.</p>
+
+<h1><b>Reformatting</b></h1>
+<p>Once you have successfully booted using the newly installed SSD, you can go ahead and choose to reformat the old drive.</p>
+<p>To reformat the old drive you can search <code>Create and format hard disk partitions</code> in the bottom left corner of your windows device.</p>
+<p>Once you do you should see the old drive, it may have a system partition with only a couple of megabytes worth of data left, you can feel free to back this data up before reformatting if you are feeling responsible, or you can take a ride on the wild side and just reformat it while blindly selecting yes regardless of the warnings, and there you have it, you should now be the owner of a device that has a 1TB ssd for your C: drive, as well as a 250GB additional internal ssd.</p>
+</body>
+</html>
