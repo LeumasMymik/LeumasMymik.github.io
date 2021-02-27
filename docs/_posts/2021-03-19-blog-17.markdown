@@ -126,6 +126,8 @@ categories: Senior-Design
 <br>
 <h1><b>Output</b></h1>
 <p>The output should look something like this:</p>
+<center>
 <img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/pythonOutput.png" alt="Output">
+</center>
 </body>
 </html>
