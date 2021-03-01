@@ -46,88 +46,47 @@ categories: Senior-Design
 </style>
 
 <body>
-<h1><b>Using the John Tool in Kali Linux</b></h1>
-<p>This blog will document the steps for using the John tool on Kali linux for password cracking use given an etc&lowbar;shadow file, and a password dictionary text file.</p>
+<h1><b>Number of Good Pairs</b></h1>
+<p>This blog will document the steps for solving the LeetCode problem 1512. Number of Good Pairs using python as our programming language.</p>
 <br>
 
-<h1><b>Reading the Files</b></h1>
-<p>To start off, we will be using the python crypt module so we need to <code>import crypt</code>.</p>
-<p>Then we need to read the etc&lowbar;shadow file within our python script. To do that I used the <code>with open</code> method to open the file and used a <code>for loop</code> to grab each line within the open file.</p>
-<p>It should look something like this:</p>
+<h1><b>Prompt</b></h1>
+<p>The prompt states that Given an array of integers, we need to find and output the number of good pairs within the array.</p>
+<p>A pair is good if the initial number and another number, not including itself, are equal. For example:</p>
 <pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import crypt
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open("etc&lowbar;shadow") as shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for shadowLine in shadowFile:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,2,3,1,1,3]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Good Pairs: 4
+</pre>
+<p>Given the array the good pairs would be position 0 and position 3, position 0 and position 4, position 2 and position 5, and position 3 and position 4,for a total of 4 good pairs.</p>
+<br>
+
+<h1><b>Nested Loop</b></h1>
+<p>To get started I set the variable good equal to 0 under the skeleton code provided by LeetCode, to act as out counter for each good pair that we find.</p>
+<p>Then I created a nested for loop, the outer most for loop will run based on the range of the length of the given array, and the innermost loop will run based on the starting index of the outermost loops current variable + 1 and an ending range based on the length of the given array.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def numIdenticalPairs(self, nums: List[int]) -> int:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;good = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(nums)):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(i+1, len(nums)):
 </pre>
 <br>
 
-<h1><b>Splits</b></h1>
-<p>Now that we are able to take in a line of the etc&lowbar;shadow file, we need to start separating the string to isolate both the encrypted password which includes: the id, salt, and the hashed password.</p>
-<p>To accomplish this we can first get rid of the new line indication at the end of our string using the <code>strip</code> method, so that when we take in a line that we read we do not create an excess new line.</p>
-<p>Then we can <code>split</code> the line that we read based on the <code>':'</code> character and grab the isolated string in the 1 position. Keep in mind that the position starts from position 0.</p>
-<p>Once we have done that we can <code>split</code> our isolated encrypted password to further isolate just the id and salt of our encrypted password.</p>
-<p>To do this we would need to <code>split</code> out isolated encrypted password based on the <code>'$'</code> character. Keep in mind that when we isolate the id and salt, we also need to add a '$' to the end of our isolated string to signify the end of our salt.</p>
-<p>It should look something like this:</p>
+<h1><b>Checking For Good Pairs</b></h1>
+<p>Then within the innermost loop, we need to check for good pairs within the given array. To do this I created an if statement that would incrementally increase our good variable by a value of 1 if the array at the starting positions of each loop were equal to each other.</p>
+<p>Then to output our solution I returned our good variable outside the boundaries of the nested loop.</p>
+<p>For Example:</p>
 <pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import crypt
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open("etc&lowbar;shadow") as shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for shadowLine in shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shadowLine = shadowLine.strip()
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;encryptedPassword = shadowLine.split(':')[1]
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character = '$'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;splitPassword = encryptedPassword.split(character)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idSalt = character.join(splitPassword[:3])
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idSalt = idSalt + "$"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def numIdenticalPairs(self, nums: List[int]) -> int:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;good = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in range(len(nums)):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in range(i+1, len(nums)):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if nums[i] == nums[j]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;good += 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(good)
 </pre>
 <br>
-
-<h1><b>Checking If A Password Even Exists</b></h1>
-<p>Next, I created an if statement to check if the isolated encrypted password even had a password to begin with so that we are not reading through every single user, directory, application, etc. listed in the file.</p>
-<p>Within an etc&lowbar;shadow file, some of the lines show either <code>'&ast;'</code> or <code>'!!'</code> symbols which signify a null password value.</p>
-<p>To do this I made an if statement that checks whether or not the isolated encrypted password starts with a '$' or not. If it does great a password exists and the script continues chugging along, but if it doesn't the script goes to the next line available in our etc&lowbar;shadow file and starts the process again.</p>
-<p>So now our code should look something like this:</p>
-<pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import crypt
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open("etc&lowbar;shadow") as shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for shadowLine in shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shadowLine = shadowLine.strip()
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character = '$'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;splitPassword = encryptedPassword.split(character)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idSalt = character.join(splitPassword[:3])
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idSalt = idSalt + "$"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if encryptedPassword[0] == '$':
-</pre>
-<br>
-
-<h1><b>Hashing With Crypt</b></h1>
-<p>After we know that the string has a password, we can open and read the password dictionary using the same method as the etc&lowbar;shadow file, keeping in mind to strip the excess new line.</p>
-<p>Then we can use the <code>crypt.crypt</code> module to create our own encrypted password string using the password from the password dictionary and our isolated string containing our id and salt.</p>
-<p>We can then compare our own encrypted password with the one that we have isolated from the etc&lowbar;shadow file and if they match we can have our script print out the user of the password that we were able to crack and the password that was cracked.</p>
-<p>Which should look something like this:</p>
-<pre>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import crypt
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open("etc&lowbar;shadow") as shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for shadowLine in shadowFile:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shadowLine = shadowLine.strip()
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;character = '$'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;splitPassword = encryptedPassword.split(character)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idSalt = character.join(splitPassword[:3])
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;idSalt = idSalt + "$"
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if encryptedPassword[0] == '$':
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with open("100000passwords.txt") as passwordDictionary:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for word in passwordDictionary:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;word = word.strip()
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hashed = crypt.crypt(word, idSalt)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if encryptedPassword == hashed:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("User found: " + shadowLine.split(':')[0])
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("Password found: " + word)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break
-</pre>
-<br>
-<h1><b>Output</b></h1>
-<p>The output should look something like this:</p>
-<center>
-<img src="https://raw.githubusercontent.com/LeumasMymik/LeumasMymik.github.io/master/docs/myPics/pythonOutput.png" alt="Output">
-</center>
 </body>
 </html>
