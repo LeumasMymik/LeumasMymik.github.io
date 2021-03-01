@@ -95,6 +95,42 @@ $('body').terminal({
 			case 12:
 				window.open(blogArray[12]);
 				break;
+			case 13:
+				window.open(blogArray[13]);
+				break;
+			case 14:
+				window.open(blogArray[14]);
+				break;
+			case 15:
+				window.open(blogArray[15]);
+				break;
+			case 16:
+				window.open(blogArray[16]);
+				break;
+			case 17:
+				window.open(blogArray[17]);
+				break;
+			case 18:
+				window.open(blogArray[18]);
+				break;
+			case 19:
+				window.open(blogArray[19]);
+				break;
+			case 20:
+				window.open(blogArray[20]);
+				break;
+			case 21:
+				window.open(blogArray[21]);
+				break;
+			case 22:
+				window.open(blogArray[22]);
+				break;
+			case 23:
+				window.open(blogArray[23]);
+				break;
+			case 24:
+				window.open(blogArray[24]);
+				break;
 			default:
 				this.echo('');
 				this.echo('     Current List of Blogs [0-12]:');
