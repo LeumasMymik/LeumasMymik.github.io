@@ -1,0 +1,95 @@
+---
+layout: post
+title:  "2021/04/02 Blog 19"
+date:   2021-03-28 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Jewels and Stones</b></h1>
+<p>This blog will document the steps for solving the LeetCode problem 771. Jewels and Stoens using python as our programming language.</p>
+<br>
+
+<h1><b>Prompt</b></h1>
+<p>The prompt states that given a string that represents either jewels or stones based on the jewels we are looking for within a stone, we need to find how many jewels are within the give stone.</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jewels = "aA", stones = "aAAbbbb"
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output: 3
+</pre>
+<br>
+
+<h1><b>Character and String</b></h1>
+<p>To get started I set the variable count equal to 0 under the skeleton code provided by LeetCode, to act as out counter for each jewel that we find within a stone.</p>
+<p>Then I created a variable for jewel and stone equal to the given strings jewels and stones sent into a list so that we can isolate each character within the given strings.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def numJewelsInStones(self, jewels: str, stones: str) -> int:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jewel = list(jewels)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stone = list(stones)
+</pre>
+<br>
+
+<h1><b>Nested Loop</b></h1>
+<p>Then I created nested for loops, the outer loop being being for the length of our list jewel, and the inner loop being for the length of our list stone.</p>
+<p>Then within the innermost loop, I created an if statement to check the current position of our list jewel and compare it with the looping position of our list stone, and if they are equal our counter increments by a value of 1.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def numJewelsInStones(self, jewels: str, stones: str) -> int:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jewel = list(jewels)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stone = list(stones)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for x in range(len(jewel)):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for y in range(len(stone)):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if jewel[x] == stone[y]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count += 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(count)
+</pre>
+<p>This way when our code runs we can check each character within the list stone against the current position within the outer loop for our character within the list jewel.</p>
+<p>Lastly to output the amount of our jewels found within a given stone we can return our count variable which should output our count of jewels.</p>
+<br>
+</body>
+</html>
