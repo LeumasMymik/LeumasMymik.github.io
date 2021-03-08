@@ -1,0 +1,99 @@
+---
+layout: post
+title:  "2021/04/09 Blog 20"
+date:   2021-04-04 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Jewels and Stones</b></h1>
+<p>This blog will document the steps for solving the LeetCode problem 1672. Richest Customer Wealth using python as our programming language.</p>
+<br>
+
+<h1><b>Prompt</b></h1>
+<p>The prompt states that given an array holding other arrays, where the outer array represents collective accounts, and where the arrays within the outer array represent the money in the account.</p>
+<p>Given the arrays, we need to find the customer with the most wealth by adding up the money within their account and comparing it with the other accounts given.</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input: accounts = [[1,5],[7,3],[3,5]]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output: 10
+</pre>
+<p>The first customer has a wealth value of 6, the second customer has a wealth value of 10, and the third customer has a wealth value of 8. The second customer is the richest in this given example.</p>
+<br>
+
+<h1><b>Nested Loop</b></h1>
+<p>To get started I set the variable wealth equal to 0 under the provided skeleton code to act as our place holder for the current most wealthy account.</p>
+<p>Then I created a nested for loop, the outer most loop running for every variable within the given accounts array, and the inner for loop for every variable within the current account array.</p>
+<p>Between the outer and inner for loop, I set a variable count equal to 0 to act as a place holder to count up the wealth within a single account.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def maximumWealth(self, accounts: List[List[int]]) -> int:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wealth = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in accounts:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in i:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = count + j
+</pre>
+<br>
+
+<h1><b>Most Wealth</b></h1>
+<p>Then I created an if statement that would check if the current value of our place holder count was greater than or equal to the current value of our place holder wealth, and if it was, we would set the value of wealth equal to the current value of count.</p>
+<p>This way if in a new iteration a different account has a greater wealth than that of the current calue within our placeholder for wealth, we can update it based on the outcome of each iteration.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def maximumWealth(self, accounts: List[List[int]]) -> int:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wealth = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for i in accounts:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for j in i:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = count + j
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if wealth <= count:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wealth = count
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(wealth)
+</pre>
+<p>Lastly to output the wealth of the richest customer, we can return our variable wealth which should hold the value of the wealthiest customer.</p>
+<br>
+</body>
+</html>
