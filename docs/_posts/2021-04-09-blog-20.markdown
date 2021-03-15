@@ -46,7 +46,7 @@ categories: Senior-Design
 </style>
 
 <body>
-<h1><b>Jewels and Stones</b></h1>
+<h1><b>Richest Customer Wealth</b></h1>
 <p>This blog will document the steps for solving the LeetCode problem 1672. Richest Customer Wealth using python as our programming language.</p>
 <br>
 
