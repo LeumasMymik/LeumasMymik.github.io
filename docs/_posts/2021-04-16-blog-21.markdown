@@ -1,0 +1,98 @@
+---
+layout: post
+title:  "2021/04/16 Blog 21"
+date:   2021-04-11 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Shuffle the Array</b></h1>
+<p>This blog will document the steps for solving the LeetCode problem 1470. Shuffle the Array using python as our programming language.</p>
+<br>
+
+<h1><b>Prompt</b></h1>
+<p>The prompt states that given an array consisting of numbers and a key number to indicate a separation of elements within the given array to then shuffle them based onthe separation.</p>
+<p>Given the key number we are tasked with outputing a shuffled array in the form of [x1,y1,x2,y2,...,xn,yn].</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input: [2,5,1,3,4,7], n = 3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output: [2,3,5,4,1,7] 
+</pre>
+<p>Another Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input: [1,2,3,4,4,3,2,1], n = 4
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output: [1,4,2,3,3,2,4,1]
+</pre>
+<br>
+
+<h1><b>Initialize Array</b></h1>
+<p>To get started I created an empty array variable named List, to hold our output array once we run our code.</p>
+<p>Then I created a variable count to act as a counter which will loop through the values within the given array based on the given key number to determine when to append elements within the given array.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def shuffle(self, nums: List[int], n: int) -> List[int]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List = []
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = 0
+</pre>
+<br>
+
+<h1><b>For Loop & Append</b></h1>
+<p>Then I created a for loop that would loop based on the range of the given key number which I will use to append values within the given number into our empty List array.</p>
+<p>To append the values I append the value of the array based on the position count and count + n respectively.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def shuffle(self, nums: List[int], n: int) -> List[int]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List = []
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for x in range(n):
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List.append(nums[count])
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List.append(nums[count + n])
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count += 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(List)
+</pre>
+<p>Lastly to output our shuffled array based on the given key number, we can simply return our List.</p>
+<br>
+</body>
+</html>
