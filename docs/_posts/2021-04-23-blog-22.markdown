@@ -1,0 +1,117 @@
+---
+layout: post
+title:  "2021/04/23 Blog 22"
+date:   2021-04-18 12:40:45 -0700
+categories: Senior-Design
+---
+<html>
+<style>
+	html, body, h1, h2, h3, h4, h5, h6, p {
+		font-family:  "Courier";
+	}
+
+	pre code {
+                font-family: Consolas,"courier new";
+		color: #666666;
+		background-color: #ffe9ec;
+		padding: 2px;
+		padding-right: 7px;
+        }
+	
+	body {
+		background-color:#cce9ff;
+	}
+
+	.site-header {
+		background-color:#ffe9ec;
+	}
+
+	.site-footer {
+		background-color:#ffe9ec;
+	}
+
+	.row {
+ 		display: flex;
+	}
+
+	.column {
+  		flex: 33.33%;
+  		padding: 20px;
+	}
+	
+	.scalable {
+		width: 50%;
+		height: auto;
+	}
+</style>
+
+<body>
+<h1><b>Kids With the Greatest Number of Candies</b></h1>
+<p>This blog will document the steps for solving the LeetCode problem 1431. Kids With the Greatest Number of Candies using python as our programming language.</p>
+<br>
+
+<h1><b>Prompt</b></h1>
+<p>The prompt states that given an array with the amount of candies each kid has, as well as extra candies that can be added to the current amount of candies a kid has, we need to find and output the kids that have the most candies by adding the extra candies with their current amount.</p>
+<p>Multiple kids can have the greatest amount of candies.</p>
+<p>For example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input: candies = [2,3,5,1,3], extraCandies = 3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output: [true,true,true,false,true]
+</pre>
+<p>Another Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Input: candies = [4,2,1,1,2], extraCandies = 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Output: [true,false,false,false,false]
+</pre>
+<br>
+
+<h1><b>Initialize Array</b></h1>
+<p>To get started I created an empty array variable named List, to hold our output array which will hold boolean values to show if a kid has the potential to have the greatest amount of candies based on their current amount of candies and the extra candies given once we run our code.</p>
+<p>Then I created a variable most set equal to the value of the first value within our given array as a place holder for comparison to find the most candies possible.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List = []
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;most = candies[0]
+</pre>
+<br>
+
+<h1><b>Given Most Candies</b></h1>
+<p>To find the most candies that a kid currently has, I created a for loop to loop for each value within the given array, and then created an if statement within the loop to check if the current value of the array was greater than our initial value of most.</p>
+<p>Then if the statement was true our most value would be set to the vlaue of the current greater value.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List = []
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;most = candies[0]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for x in candies:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x > most:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;most = x
+</pre>
+<br>
+
+<h1><b>Absolute Most Candies</b></h1>
+<p>Then to find the absolute most candies a kid can have taking into consideration the extra candies as well, I created a for loop for each vlaue within the array candies.</p>
+<p>Then within the for loop, I created an if statement to compare the most value we found earlier to the current value of the given array and the amount of extra cnadies that we were given.</p>
+<p>Then once we found if the statement was true we would append the value true to indicate the most candies possible, else we append into our initialized array that it is false to indicate that it is not the most.</p>
+<p>For Example:</p>
+<pre>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class Solution:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List = []
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;most = candies[0]
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for x in candies:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if x > most:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;most = x
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for y in candies:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if y + extraCandies >= most:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List.append(True)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List.append(False)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(List)
+</pre>
+<p>Lastly, to output our result we can return the array List that is filled with which kid has or can have the most candies given the extra candies.</p>
+</body>
+</html>
